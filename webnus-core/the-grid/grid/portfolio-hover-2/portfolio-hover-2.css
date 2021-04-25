@@ -1,0 +1,90 @@
+/*
+* portfolio hover gallery 2
+*/
+
+.tg-item.portfolio-hover-2 {
+	overflow: hidden;
+}
+.tg-item.portfolio-hover-2:hover .tg-item-overlay {
+	border: 1px;
+	border-style: solid;
+	border-color: #437df9;
+	position: absolute;
+	overflow: hidden;
+	display: block;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index:0;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-2 .tg-item-title a {
+	color: #222;
+}
+.tg-item.portfolio-hover-2 .tg-element-2 {
+	position: absolute;
+	font-size: 14px;
+	line-height: 14px;
+	font-weight: 600;
+	max-width: 90%;
+	display: inline-table;
+	text-transform: uppercase;
+    padding: 15px 48px 14px 43px;
+	bottom: -100px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index: 9;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-2:hover .tg-element-2 {
+	opacity: 1;
+	visibility: visible;
+    bottom: 0;
+}
+.tg-item.portfolio-hover-2 .tg-element-1 {
+	position: absolute;
+	font-size: 30px;
+	line-height: 26px;
+	color: #222;
+	font-weight: 400;
+	text-align: center;
+	display: block;
+	z-index: 3;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	top: 30%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-70%);
+	-moz-transform: translate(-50%,-70%);
+	-ms-transform: translate(-50%,-70%);
+	transform: translate(-50%,-70%);
+	visibility: hidden;
+	-webkit-transition: all 400ms ease;
+	-moz-transition: all 400ms ease;
+	-ms-transition: all 400ms ease;
+	transition: all 400ms ease;
+}
+.tg-item.portfolio-hover-2:hover .tg-element-1 {
+	opacity: 1;
+	visibility: visible;
+    top: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+

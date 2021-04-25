@@ -1,0 +1,1 @@
+!function(){var e,a=document.getElementById("site-navigation");if(a)for(e=a.getElementsByTagName("a"),i=0,len=e.length;i<len;i++)e[i].onfocus=n,e[i].onblur=n;function n(){for(var e=this;a!==e;)"li"===e.tagName.toLowerCase()&&(-1!==e.className.indexOf("focus")?e.className=e.className.replace(" focus",""):e.className+=" focus"),e=e.parentElement}}();

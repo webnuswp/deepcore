@@ -1,0 +1,1 @@
+!function(n){function e(n,e){e(".donate-button").magnificPopup({removalDelay:500,callbacks:{beforeOpen:function(){this.st.mainClass=this.st.el.attr("data-effect")}},midClick:!0})}n(window).on("elementor/frontend/init",function(){elementorFrontend.hooks.addAction("frontend/element_ready/donate.default",e)})}(jQuery);

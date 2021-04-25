@@ -1,0 +1,142 @@
+.crypto.tg-item * {
+    border-radius: 7px;
+}
+.crypto .tg-item-skin-name {
+    border-radius: 0;
+}
+.crypto .tg-item-media-holder:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 7px;
+    background: #005bea;
+    background: linear-gradient(-45deg,#004ff9 0%,#004ff9 33%,#0074EC 66%,#0074EC 100%);
+    background: -moz-linear-gradient(-45deg,#004ff9 0%,#004ff9 33%,#0074EC 66%,#0074EC 100%);
+    background: -webkit-linear-gradient(-45deg,#004ff9 0%,#004ff9 33%,#0074EC 66%,#0074EC 100%);
+    opacity: 0.85;
+    z-index: 0;
+}
+#wrap .crypto .tg-item-overlay {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    box-shadow: 0px 10px 30px 0px rgba(14,21,47,0.3);
+}
+#wrap .crypto:hover .tg-item-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+	-webkit-transition: all 0.23s ease;
+	-moz-transition: all 0.23s ease;
+	-ms-transition: all 0.23s ease;
+	-o-transition: all 0.23s ease;
+	transition: all 0.23s ease;
+    background-color: rgba(0,0,0,0);
+    background: linear-gradient(-15deg,#0d1114 0%,#0d1114 33%,#262e32 66%,#262e32 100%) !important;
+    background: -moz-linear-gradient(-15deg,#0d1114 0%,#0d1114 33%,#262e32 66%,#262e32 100%);
+    background: -webkit-linear-gradient(-15deg,#0d1114 0%,#0d1114 33%,#262e32 66%,#262e32 100%);
+}
+.crypto .tg-center-holder {
+	overflow: hidden;
+	 word-break: break-all;
+}
+.crypto .tg-atv-holder,
+.crypto .tg-atv-anim,
+.crypto .tg-item-content-inner,
+.crypto .tg-item-media-holder,
+.crypto .tg-item-overlay ,
+.crypto .tg-media-button,
+.crypto .tg-item-link {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	outline: 1px solid transparent;
+}
+.crypto .tg-item-overlay,
+.crypto .tg-item-content-inner {
+	z-index: 2;
+	opacity: 1;
+    visibility: visible;
+	-webkit-transition: all 0.23s ease;
+	-moz-transition: all 0.23s ease;
+	-ms-transition: all 0.23s ease;
+	-o-transition: all 0.23s ease;
+	transition: all 0.23s ease;
+}
+.crypto .tg-center-holder .tg-element-1 {
+    color: #6590f9;
+    word-spacing: 0.4em;
+    font-size: 16px;
+}
+.crypto .tg-center-holder .tg-element-2 a {
+    font-size: 26px;
+    color: #f9fcff;
+    font-weight: 200;
+    line-height: 34px;
+    letter-spacing: 0;
+    padding-right: 0;
+}
+.crypto .tg-center-holder .tg-element-2 a:after {
+    content: ''; 
+    position: absolute;
+    left: -24px;
+    top: 18px;
+    background: #5bd0ed;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    bottom: 4px;
+}
+.crypto .tg-center-holder .tg-element-2 a:before {
+    content: ''; 
+    position: absolute;
+    left: -28px;
+    top: 14px;
+    background: #cae8f5;
+    opacity: 0.3;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    bottom: 0px;
+}
+.crypto .tg-item-content-inner {
+	padding: 30px;	
+}
+.crypto:hover .tg-item-content-inner {
+	opacity: 1;
+	visibility: visible;
+}
+.crypto .tg-item-title,
+.crypto .tg-item-title a {
+	position: relative;
+	display: block;
+    font-size: 42px;
+    line-height: 42px;
+    font-weight: 700;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.crypto .tg-center-holder {
+    position: absolute;
+    top: 103px;
+    left: 52px;
+    text-align: left;
+    z-index: 9;
+}
+.crypto:nth-child(3) .tg-center-holder,
+.crypto:nth-child(4) .tg-center-holder {
+    top: 125px;
+}
+.crypto:hover .tg-center-holder .tg-element-1 {
+    color: #888b8c;
+}
+.crypto .tg-item-title {
+	padding: 0 40px 0 30px !important;    	
+}
+.tg-layout-justified .crypto .tg-item-title {
+    padding: 0 10px !important;  
+}

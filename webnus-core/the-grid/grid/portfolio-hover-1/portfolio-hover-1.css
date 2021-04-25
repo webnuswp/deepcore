@@ -1,0 +1,185 @@
+/*
+* portfolio hover gallery 1 
+*/
+
+.tg-item.portfolio-hover-1 {
+    overflow: hidden;
+}
+.tg-item.portfolio-hover-1:hover .tg-item-overlay {
+	position: absolute;
+	overflow: hidden;
+	display: block;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+	border: 3px;
+	border-style: solid;
+	border-color: #437df9;
+}
+.tg-item.portfolio-hover-1 .tg-element-1 a {
+	color: #222;
+}
+.tg-item.portfolio-hover-1 .tg-element-1 {
+	position: relative;
+	font-size: 26px;
+	line-height: 26px;
+	font-weight: 400;
+	letter-spacing: -0.008rem;
+	word-spacing: .001rem;
+	display: block;
+	margin: 0;
+	padding: 8px 0;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+	-webkit-transform: translate3d(45px,-100px,0px);
+	-moz-transform: translate3d(45px,-100px,0px);
+	-ms-transform: translate3d(45px,-100px,0px);
+	transform: translate3d(45px,-100px,0px);
+}
+.tg-item.portfolio-hover-1:hover .tg-element-1 {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transform: translate3d(45px,34px,0);
+	-moz-transform: translate3d(45px,34px,0);
+	-ms-transform: translate3d(45px,34px,0);
+	transform: translate3d(45px,34px,0);
+}
+.tg-item.portfolio-hover-1 .tg-element-2 {
+	position: relative;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 400;
+	display: inline-block;
+	opacity: 0;
+	text-transform: uppercase;
+	visibility: hidden;
+	-webkit-transition: all 420ms ease;
+	-moz-transition: all 420ms ease;
+	-ms-transition: all 420ms ease;
+	transition: all 420ms ease;
+	-webkit-transform: translate3d(44px,-100px,0px);
+	-moz-transform: translate3d(44px,-100px,0px);
+	-ms-transform: translate3d(44px,-100px,0px);
+	transform: translate3d(44px,-100px,0px);
+}
+.tg-item.portfolio-hover-1 .tg-element-2 span {
+	color: #818181;
+}
+.tg-item.portfolio-hover-1:hover .tg-element-2 {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transform: translate3d(44px,33px,0);
+	-moz-transform: translate3d(44px,33px,0);
+	-ms-transform: translate3d(44px,33px,0);
+	transform: translate3d(44px,33px,0);
+}
+.tg-item.portfolio-hover-1 .tg-element-3 {
+	position: absolute;
+	font-family: "linea-arrows-10";
+	font-size: 21px;
+	line-height: 45px;
+	font-weight: 600;
+	text-align: center;
+	bottom: 0;
+	left: 45px;
+	border: 1px;
+	border-style: solid;
+	border-color: #437df9;
+	display: inline-block;
+	width: 45px;
+	min-width: 45px;
+	height: 45px;
+	min-height: 45px;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 490ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-1:hover .tg-element-3 {
+	opacity: 1;
+	visibility: visible;
+	bottom: 45px;
+	left: 45px;
+}
+.tg-item.portfolio-hover-1 .tg-element-3.tg-icon-arrows-out:before {
+	content: "\e028";
+	color: #222;
+}
+.tg-item.portfolio-hover-1 .tg-element-3:hover {
+	background-color: rgba(255,255,255,0.3);
+	font-size: 27px;
+}
+.tg-item.portfolio-hover-1 .tg-element-4 {
+	position: absolute;
+	font-family: "linea-arrows-10";
+	font-size: 21px;
+	line-height: 45px;
+	font-weight: 600;
+	text-align: center;
+	display: inline-block;
+	bottom: 0;
+	left: 105px;
+	width: 45px;
+	min-width: 45px;
+	height: 45px;
+	min-height: 45px;
+	opacity: 0;
+	border: 1px;
+	border-style: solid;
+	border-color: #437df9;
+	visibility: hidden;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-1:hover .tg-element-4 {
+	opacity: 1;
+	bottom: 45px;
+	left: 105px;
+	visibility: visible;
+}
+.tg-item.portfolio-hover-1 .tg-element-4.tg-icon-arrow-next-thin:before {
+	content: "\e04b";
+	padding-left: 46px;
+	color: #222;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-1 .tg-element-4.tg-icon-arrow-next-thin:after {
+	content: "";
+	position: absolute;
+	text-align: center;
+	display: inline-block;
+	bottom: 20px;
+	left:20px;
+	width: 39px;
+	height: 1px;
+	background: #222;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-1 .tg-element-4:hover {
+	background-color: rgba(255,255,255,0.3);
+}
+.tg-item.portfolio-hover-1 .tg-element-4.tg-icon-arrow-next-thin:hover:before {
+    padding-left: 51px;
+}
+.tg-item.portfolio-hover-1 .tg-element-4.tg-icon-arrow-next-thin:hover:after {
+    left: 25px;
+}

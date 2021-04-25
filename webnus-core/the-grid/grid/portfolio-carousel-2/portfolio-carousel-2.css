@@ -1,0 +1,124 @@
+/*
+* portfolio carousel  2
+*/
+
+.portfolio-carousel-2 .tg-item-overlay {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 340ms ease !important;
+	-moz-transition: all 340ms ease !important;
+	-ms-transition: all 340ms ease !important;
+	transition: all 340ms ease !important;
+	box-sizing: border-box;
+}
+.portfolio-carousel-2 .tg-item.portfolio-carousel-2:hover .tg-item-overlay {
+	opacity: 1;
+	visibility: visible;
+	border: 1px;
+	border-style: solid;
+}
+.portfolio-carousel-2 .tg-item.portfolio-carousel-2 .tg-element-4 i {
+	color: #222;
+	font-weight: 100;
+	font-family: "linea-arrows-10";
+	font-size: 29px;
+}
+.portfolio-carousel-2 .tg-item.portfolio-carousel-2 .tg-element-4 i.tg-icon-add-2:before {
+	content: "\e048";
+	padding: 2px;
+}
+.portfolio-carousel-2 .tg-item.portfolio-carousel-2 .tg-element-4 {
+	position: absolute;
+	visibility: visible;
+	display: block;
+	text-align: center; 
+	bottom: 45px;
+	right: 45px;
+	padding: 7px 6px 0;
+	border: 1px;
+	border-style: solid;
+	z-index: 3;
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 250ms ease;
+	-moz-transition: all 250ms ease;
+	-ms-transition: all 250ms ease;
+	transition: all 250ms ease;
+}
+.portfolio-carousel-2 .tg-item.portfolio-carousel-2:hover .tg-element-4 {
+	opacity: 1;
+	visibility: visible;
+}
+.portfolio-carousel-2 .tg-item.portfolio-carousel-2 .tg-element-2 a {
+	color: #222;
+	font-size: 28px;
+	line-height: 26px;
+	font-weight: 400;
+}
+.portfolio-carousel-2 .tg-item.portfolio-carousel-2 .tg-element-2 {
+	position: relative;
+	display: block;
+	margin: 3px 45px 0;
+	padding: 0;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 250ms ease;
+	-moz-transition: all 250ms ease;
+	-ms-transition: all 250ms ease;
+	transition: all 250ms ease;
+	-webkit-transform: translate3d(0px,22px,0px);
+	-moz-transform: translate3d(0px,22px,0px);
+	-ms-transform: translate3d(0px,22px,0px);
+	transform: translate3d(0px,22px,0px);
+}
+.portfolio-carousel-2 .tg-item.portfolio-carousel-2:hover .tg-element-2 {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+.portfolio-carousel-2 .tg-item.portfolio-carousel-2 .tg-element-1 {
+	position: relative;
+	font-size: 14px;
+	line-height: 25px;
+	font-weight: 400;
+	display: block;
+	width: 198px;
+	min-height: 28px;
+	height: auto;
+	margin:45px 0 0;
+	padding: 1px 45px;
+	opacity: 0;
+	text-transform: uppercase;
+	word-spacing: 1px;
+	visibility: hidden;
+	-webkit-transition: all 250ms ease;
+	-moz-transition: all 250ms ease;
+	-ms-transition: all 250ms ease;
+	transition: all 250ms ease;
+	-webkit-transform: translate3d(0px,-22px,0px);
+	-moz-transform: translate3d(0px,-22px,0px);
+	-ms-transform: translate3d(0px,-22px,0px);
+	transform: translate3d(0px,-22px,0px);
+}
+.portfolio-carousel-2 .tg-item.portfolio-carousel-2:hover .tg-element-1 {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+.portfolio-carousel-2 .tg-item.portfolio-carousel-2:hover .tg-element-1 .tg-item-term {
+	position: relative;
+	display: inline-block;
+}

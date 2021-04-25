@@ -1,0 +1,99 @@
+.single-portfolio-14 a:not([class*="tg-element-"]),
+.single-portfolio-14 a:not([class*="tg-element-"]):active,
+.single-portfolio-14 a:not([class*="tg-element-"]):focus,
+.single-portfolio-14 [class*="tg-element-"] *:not(del) {
+	margin: 0;
+	padding: 0;
+	color: inherit !important;
+	text-align: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	line-height: inherit;
+	font-weight: inherit;
+	text-transform: inherit;
+	text-decoration: inherit;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: none;
+}
+.single-portfolio-14 [class*="tg-element-"],
+.single-portfolio-14 .tg-item-overlay,
+.single-portfolio-14 .tg-center-holder,
+.single-portfolio-14 .tg-center-inner > * {
+	vertical-align: middle;
+}
+.single-portfolio-14 .tg-item-overlay {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.single-portfolio-14 .tg-element-2 {
+	position: relative;
+	visibility: hidden;
+	opacity: 0;
+	font-size: 20px;
+	line-height: 56px;
+	color: #545454;
+	font-weight: 400;
+	text-align: center;
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+.single-portfolio-14 .tg-element-1 {
+	position: relative;
+	visibility: visible;
+	font-size: 20px;
+	line-height: 110px;
+	font-weight: 400;
+	background-color: #000000;
+	display: inline-block;
+	width: 47%;
+	min-width: 47%;
+	height: 110px;
+	min-height: 110px;
+	margin: 0;
+	padding: 8px 0;
+	text-align:  center;
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+/* Webnus Custom */
+.single-portfolio-14 .tg-item-overlay {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+.single-portfolio-14 .tg-bottom-holder,
+.single-portfolio-14 .tg-center-holder {
+	text-align: center;
+}
+.single-portfolio-14:hover .tg-element-2 {
+    visibility: visible;
+    opacity: 1;
+}
+.single-portfolio-14:hover .tg-item-overlay {
+    visibility: visible;
+    opacity:1
+}
+
+.single-portfolio-14 .tg-element-2 { 
+	font-size: 50px;
+}

@@ -1,0 +1,1 @@
+window.addEventListener("hashchange",function(t){var e=document.getElementById(location.hash.substring(1));e&&(/^(?:a|select|input|button|textarea)$/i.test(e.tagName)||(e.tabIndex=-1),e.focus())},!1);

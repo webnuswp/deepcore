@@ -1,0 +1,152 @@
+/*
+* portfolio hover gallery 4
+*/
+
+.tg-item.portfolio-hover-4 {
+	overflow: hidden;
+}
+.tg-item.portfolio-hover-4:hover .tg-item-overlay {
+	position: absolute;
+	overflow: hidden;
+	display: block;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index:0;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-4 .tg-element-1 {
+	position: absolute;
+	font-size: 26px;
+	line-height: 20px;
+	color: #fff;
+	font-weight: 300;
+	top: 39px;
+	left: 0;
+	display: block;
+	z-index: 3;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 350ms ease;
+	-moz-transition: all 350ms ease;
+	-ms-transition: all 350ms ease;
+	transition: all 350ms ease;
+}
+.tg-item.portfolio-hover-4:hover .tg-element-1 {
+	opacity: 1;
+	visibility: visible;
+	left: 35px;
+}
+.tg-item.portfolio-hover-4 .tg-item-title a {
+	color: #fff;
+}
+.tg-item.portfolio-hover-4 .tg-element-2 {
+	position: absolute;
+	font-size: 14px;
+	line-height: 14px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	max-width: 90%;
+	display: inline-table;
+	text-transform: uppercase;
+	top: 72px;
+	left: 0;
+	z-index: 9;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 430ms ease;
+	-moz-transition: all 430ms ease;
+	-ms-transition: all 430ms ease;
+	transition: all 430ms ease;
+}
+.tg-item.portfolio-hover-4:hover .tg-element-2 {
+	opacity: 1;
+	visibility: visible;
+	bottom: 0;
+	left: 35px;
+}
+.tg-item.portfolio-hover-4 .tg-element-4 {
+	position: absolute;
+	font-size: 35px;
+	line-height: 45px;
+	font-weight: 400;
+	text-align: center;
+	display: inline-block;
+	font-family: "linea-arrows-10";
+	width: 45px;
+	min-width: 45px;
+	height: 45px;
+	bottom: 35px;
+	right: 87px;
+	min-height: 45px;
+	border: 1px solid #fff;
+	background: #fff;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-4 .tg-element-4.tg-icon-arrow-next-thin:before {
+	content: "\e048";
+}
+.tg-item.portfolio-hover-4:hover .tg-element-4 {
+	opacity: 1;
+	visibility: visible;
+}
+.tg-item.portfolio-hover-4 .tg-element-4:hover {
+	font-size: 35px;
+}
+.tg-item.portfolio-hover-4 .tg-element-3 {
+	position: absolute;
+	font-size: 20px;
+	line-height: 14px;
+	font-weight: 400;
+	opacity: 0;
+	right: 35px;
+	bottom: 35px;
+	visibility: hidden;
+	border: 1px solid #fff;
+	background: #fff;
+	padding: 14px 9px 8px 13px;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-4 .tg-element-3:hover {
+	opacity: 1 !important;
+}
+#wrap .tg-item.portfolio-hover-4 .tg-element-3 .to-heart-icon path {
+    fill: #8d6afe;
+    stroke: #8d6afe;
+}
+.tg-item.portfolio-hover-4:hover .tg-element-3 {
+	opacity: 1;
+	visibility: visible;
+}
+.tg-item.portfolio-hover-4 .tg-element-3 span {
+    font-size: 0;
+}
+.tg-item.portfolio-hover-4 .tg-element-3 .to-heart-icon {
+	position: relative;
+	display: inline-block;
+	float: left;
+	margin: 0 6px 0 0;
+}
+.tg-item.portfolio-hover-4 .tg-element-3 .to-heart-icon svg {
+	height: 14px;
+	width: 15px;
+}
+#wrap .tg-item.portfolio-hover-4 .tg-element-3.liked .to-heart-icon path, #wrap .tg-item.portfolio-hover-4 .tg-element-3 .to-heart-icon svg:hover path {
+    fill: #8d6afe !important;
+    stroke: #8d6afe !important;
+}

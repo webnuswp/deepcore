@@ -1,0 +1,137 @@
+/*
+* portfolio hover gallery 6
+*/
+
+.tg-item.portfolio-hover-6 {
+	overflow: hidden;
+	position: relative;
+}
+.tg-item.portfolio-hover-6:hover .tg-item-overlay {
+	position: absolute;
+	overflow: hidden;
+	display: block;
+	z-index:0;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-6 .tg-item-overlay:after {
+	position: absolute;
+	content: "";
+	top: 45%;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	-webkit-transition: all 420ms ease;
+	-moz-transition: all 420ms ease;
+	-ms-transition: all 420ms ease;
+	transition: all 420ms ease;
+	background: rgba(175,175,175,0);
+}
+.tg-item.portfolio-hover-6:hover .tg-item-overlay:after {
+	position: absolute;
+	content: "";
+	background: rgb(141, 106, 254);
+	top: 68%;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index:0;
+}
+.tg-item.portfolio-hover-6 .tg-element-1 {
+	position: absolute;
+	font-size: 26px;
+	color: #fff;
+	font-weight: 300;
+	bottom: 58px;
+	left: 0;
+	display: block;
+	z-index: 3;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 350ms ease;
+	-moz-transition: all 350ms ease;
+	-ms-transition: all 350ms ease;
+	transition: all 350ms ease;
+}
+.tg-item.portfolio-hover-6:hover .tg-element-1 {
+	opacity: 1;
+	visibility: visible;
+	left: 33px;
+}
+.tg-item.portfolio-hover-6 .tg-element-2 span,
+.tg-item.portfolio-hover-6 .tg-element-1 a {
+	color: #fff;
+}
+.tg-item.portfolio-hover-6 .tg-center-holder {
+	position: absolute;
+	top: auto;
+	bottom: 30px;
+	left:0;
+	visibility: hidden;
+	-webkit-transition: all 350ms ease;
+	-moz-transition: all 350ms ease;
+	-ms-transition: all 350ms ease;
+	transition: all 350ms ease;
+}
+.tg-item.portfolio-hover-6:hover .tg-center-holder {
+	left:35px;
+	visibility: visible;
+}
+.tg-item.portfolio-hover-6 .tg-element-2 {
+	font-size: 14px;
+	font-weight: 300;
+	letter-spacing: 1px;;
+	display: inline-table;
+	text-transform: uppercase;
+	z-index: 9;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 430ms ease;
+	-moz-transition: all 430ms ease;
+	-ms-transition: all 430ms ease;
+	transition: all 430ms ease;
+}
+.tg-item.portfolio-hover-6:hover .tg-element-2 {
+	opacity: 1;
+	visibility: visible;
+}
+.tg-item.portfolio-hover-6 .tg-element-3 {
+	position: absolute;
+	font-size: 35px;
+	line-height: 45px;
+	font-weight: 400;
+	text-align: center;
+	display: inline-block;
+	font-family: "linea-arrows-10";
+	width: 45px;
+	min-width: 45px;
+	height: 45px;
+	top: 35px;
+	right: 0;
+	min-height: 45px;
+	border: 1px solid #fff;
+	background: #fff;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 350ms ease;
+	-moz-transition: all 350ms ease;
+	-ms-transition: all 350ms ease;
+	transition: all 350ms ease;
+}
+.tg-item.portfolio-hover-6 .tg-element-3.tg-icon-chain-broken:before {
+	content: "\e048";
+}
+.tg-item.portfolio-hover-6:hover .tg-element-3 {
+	opacity: 1;
+	visibility: visible;
+	right: 35px;
+}

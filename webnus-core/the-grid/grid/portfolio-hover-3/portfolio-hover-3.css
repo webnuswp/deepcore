@@ -1,0 +1,159 @@
+/*
+* portfolio hover gallery 3
+*/
+
+.tg-item.portfolio-hover-3 {
+	overflow: hidden;
+}
+.tg-item.portfolio-hover-3:hover .tg-item-overlay {
+	position: absolute;
+	overflow: hidden;
+	display: block;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index:0;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+	border: 1px;
+	border-style: solid;
+	border-color: #437df9;
+}
+.tg-item.portfolio-hover-3 .tg-element-1 {
+	position: absolute;
+	font-size: 27px;
+	line-height: 26px;
+	color: #222;
+	font-weight: 400;
+	text-align: center;
+	display: block;
+	z-index: 3;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 400ms ease;
+	-moz-transition: all 400ms ease;
+	-ms-transition: all 400ms ease;
+	transition: all 400ms ease;
+}
+.tg-item.portfolio-hover-3:hover .tg-element-1 {
+	opacity: 1;
+	visibility: visible;
+	margin-top: -13%;
+}
+.tg-item.portfolio-hover-3 .tg-item-title a {
+	color: #222;
+}
+.tg-item.portfolio-hover-3 .tg-element-5 {
+	position: absolute;
+	font-size: 14px;
+	line-height: 14px;
+	font-weight: 600;
+	max-width: 90%;
+	display: inline-table;
+	text-transform: uppercase;
+	padding: 15px 48px 14px 43px;
+	bottom: -100px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index: 9;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-3:hover .tg-element-5 {
+	opacity: 1;
+	visibility: visible;
+	bottom: 0;
+}
+.tg-item.portfolio-hover-3 .tg-element-3 {
+	position: absolute;
+	font-family: "linea-arrows-10";
+	font-size: 31px;
+	line-height: 45px;
+	font-weight: 100;
+	text-align: center;
+	bottom: 0;
+	left: 40%;
+	border: 1px;
+	border-style: solid;
+	border-color: #437df9;
+	display: inline-block;
+	width: 45px;
+	min-width: 45px;
+	height: 45px;
+	min-height: 45px;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-3:hover .tg-element-3 {
+	opacity: 1;
+	visibility: visible;
+	bottom: -49px;
+	left: calc(50% - 54px);
+    left: -moz-calc(50% - 54px);
+    left: -webkit-calc(50% - 54px);
+}
+.tg-item.portfolio-hover-3 .tg-element-3.tg-icon-arrows-out:before {
+	content: "\e048";
+	color: #222;
+}
+.tg-item.portfolio-hover-3 .tg-element-3:hover {
+	background: rgba(255,255,255,0.8);
+	font-size: 37px;
+}
+.tg-item.portfolio-hover-3 .tg-element-4 {
+	position: absolute;
+	font-family: "linea-basic-10";
+	font-size: 21px;
+	line-height: 45px;
+	font-weight: 100;
+	text-align: center;
+	display: inline-block;
+	bottom: 0;
+	right: 40%;
+	width: 45px;
+	min-width: 45px;
+	height: 45px;
+	min-height: 45px;
+	opacity: 0;
+	border: 1px;
+	border-style: solid;
+	border-color: #437df9;
+	visibility: hidden;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.portfolio-hover-3:hover .tg-element-4 {
+	opacity: 1;
+	bottom: -49px;
+	right: calc(50% - 51px);
+    right: -moz-calc(50% - 51px);
+    right: -webkit-calc(50% - 51px);
+	visibility: visible;
+}
+.tg-item.portfolio-hover-3 .tg-element-4.tg-icon-arrow-next-thin:before {
+	content: "8";
+	color: #222;
+}
+.tg-item.portfolio-hover-3 .tg-element-4:hover {
+	background: rgba(255,255,255,0.8);
+	font-size: 23px;
+}

@@ -1,0 +1,166 @@
+/*
+* Photography Home  
+*/
+
+.tg-item.photography-home {
+	text-align: center;
+}
+.tg-item.photography-home .tg-item-overlay {
+	position: absolute;
+	opacity: 0;
+	top: 10%;
+	left: 10%;
+	bottom: 10%;
+	right: 10%;
+	visibility: hidden;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.photography-home:hover .tg-item-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: block;
+	background: transparent;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+	opacity: 1;
+	visibility: visible;	
+}
+#wrap .tg-item.photography-home .tg-icon-add:before {
+	content: "";
+}
+#wrap .tg-item.photography-home:hover .full .tg-icon-add:before  {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: transparent;
+	width: 100%;
+	height: 100%;
+	z-index: 8;
+}
+.tg-item.photography-home:hover .full  a {
+    position: absolute;
+    z-index: 7;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.tg-item.photography-home .tg-element-4 {
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	top: 50px;
+	left: 50px;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.photography-home:hover .tg-element-4 {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	opacity: 1;
+	visibility: visible;
+	z-index: 9;
+}
+#wrap .tg-item.photography-home .tg-element-4 .to-heart-icon svg {
+	width: 17px;
+	height: 16px;
+}
+#wrap .tg-item.photography-home .tg-element-4 .to-heart-icon path {
+	fill: transparent !important;
+	stroke: #ff2e76;
+}
+#wrap .tg-item.photography-home .tg-element-4 span{
+	font-size: 14px;
+	color: #444444;
+}
+.tg-item.photography-home .tg-element-1 a,
+.tg-item.photography-home .tg-element-2 span {
+	color: #2f2f2f;    
+}
+.tg-item.photography-home .tg-element-1{
+	position: absolute;
+	font-size: 33px;
+	line-height: 18px;
+	font-weight: 400;
+	text-transform: capitalize;
+	bottom: 110px;
+	left: 50px;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease; 
+}
+.tg-item.photography-home:hover .tg-element-1 {
+	opacity: 1;
+	visibility: visible;
+}
+.tg-item.photography-home .tg-element-2 {
+	position: absolute;
+	font-size: 14px;
+	line-height: 13px;
+	font-weight: 400;
+	text-transform: capitalize;
+	bottom: 50px;
+	left: 50px;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 390ms ease;
+	-moz-transition: all 390ms ease;
+	-ms-transition: all 390ms ease;
+	transition: all 390ms ease;
+}
+.tg-item.photography-home:hover .tg-element-2 {
+	opacity: 1;
+	visibility: visible;
+}
+.tg-item.photography-home .tg-element-2 .tg-item-term {
+	position: relative;
+	display: inline-block;
+}
+#wrap .tg-item.photography-home .liner {
+    opacity: 0;
+    visibility: hidden;
+	-webkit-transition: all 700ms ease;
+	-moz-transition: all 700ms ease;
+	-ms-transition: all 700ms ease;
+	transition: all 700ms ease;
+}
+#wrap .tg-item.photography-home:hover .liner {
+	opacity: 1;
+	visibility: visible;
+}
+#wrap .tg-item.photography-home:hover .liner:after {
+	content: "";
+	position: absolute;
+	width: 74px;
+	height: 2px;
+	bottom: 86px;
+	left: 50px;
+	background: #e4e4e4;
+}
+#wrap .tg-item.photography-home:hover .liner:before {
+	content: "";
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	bottom: 84px;
+	border-radius: 50%;
+	left: 127px;
+	background: #ff6b43;
+}

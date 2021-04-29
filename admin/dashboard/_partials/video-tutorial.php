@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<h1><?php echo esc_html__( 'Welcome to ', 'deep' ) . Deep_Admin::theme( 'name' ); ?></h1>
 	<div class="about-text"><?php echo Deep_Admin::theme( 'name' ) . esc_html__( ' is now installed and ready to use! Let’s convert your imaginations to reality on the web!', 'deep' ); ?></div>
-	<div class="wp-badge"><?php printf( esc_html__( 'Version %s', 'deep' ), Deep_Admin::theme( 'version' ) ); ?></div>
+	<div class="wp-badge"><?php printf( esc_html__( 'Version %s', 'deep' ), '1.0.23' ); ?></div>
 	<?php do_action( 'deep_before_start_dashboard' ); ?>
 	<h2 class="nav-tab-wrapper wp-clearfix">
 		<?php

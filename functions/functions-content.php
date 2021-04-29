@@ -977,7 +977,6 @@ class WN_Content {
 		$enable_author_meta      = deep_get_option( $this->theme_options, 'deep_blog_meta_author_enable', '1' );
 		$enable_gravatar_meta    = deep_get_option( $this->theme_options, 'deep_blog_meta_gravatar_enable', '1' );
 		$enable_category_meta    = deep_get_option( $this->theme_options, 'deep_blog_meta_category_enable', '1' );
-		$enable_single_fimage    = deep_get_option( $this->theme_options, 'deep_blog_sinlge_featuredimage_enable', '1' );
 		$enable_single_authorbox = deep_get_option( $this->theme_options, 'deep_blog_single_authorbox_enable', '0' );
 
 		if ( $single_post_style == 'postshow1' ) {

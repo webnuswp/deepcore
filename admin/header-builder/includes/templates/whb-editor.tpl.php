@@ -74,7 +74,7 @@ $class_frontend_builder = WHB_Helper::is_frontend_builder() ? ' whb-frontend-bui
 
         <?php if ( WHB_Helper::is_frontend_builder() ) : ?>
             <div class="whb-action-collapse whb-tooltip whb-open" data-tooltip="<?php esc_html_e( 'Toggle', 'deep' ); ?>"><i class="ti-arrow-circle-down"></i></div>
-            <a href="#" id="whb-publish" class="button button-primary"><i class="sl-cloud-upload"></i><?php esc_html_e( 'Publish', 'deep' ); ?></a>    
+            <a href="#" id="whb-publish" class="button button-primary"><i class="ti-new-window"></i><?php esc_html_e( 'Publish', 'deep' ); ?></a>
             <a href="<?php echo admin_url( 'admin.php?page=wn-admin-welcome' ); ?>" class="btob-button whb-tooltip" data-tooltip="<?php esc_html_e( 'Backend editor', 'deep' ) ?>"><i class="ti-arrow-left"></i></a>
         <?php else : ?>
             <a href="<?php echo admin_url( 'admin.php?page=webnus_header_builder' ); ?>" id="whb-f-editor" class="button button-primary"><i class="ti-arrow-right"></i><?php esc_html_e( 'Front-end Header Builder', 'deep' ); ?></a>

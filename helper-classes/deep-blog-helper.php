@@ -18,6 +18,9 @@ class Deep_Blog_Helper {
 	 * @since   1.0.0
 	 */
 	public static function thumbnail( $post ) {
+		$deep_options = deep_options();
+		$enable_single_fimage = deep_get_option( $deep_options, 'deep_blog_sinlge_featuredimage_enable', '1' );
+
 		if ( 'video' == get_post_format( get_the_ID() ) || 'audio' == get_post_format( get_the_ID() ) ) {
 			$pattern = '\\[' . '(\\[?)' . '(video|audio)' . '(?![\\w-])' . '(' . '[^\\]\\/]*' . '(?:' . '\\/(?!\\])' . '[^\\]\\/]*' . ')*?' . ')' . '(?:' . '(\\/)' . '\\]' . '|' . '\\]' . '(?:' . '(' . '[^\\[]*+' . '(?:' . '\\[(?!\\/\\2\\])' . '[^\\[]*+' . ')*+' . ')' . '\\[\\/\\2\\]' . ')?' . ')' . '(\\]?)';
 			preg_match('/'.$pattern.'/s', $post->post_content, $matches);
@@ -40,7 +43,11 @@ class Deep_Blog_Helper {
 			}
 		} elseif ( ( ! empty( rwmb_meta( 'deep_featured_video_meta' ) ) ) ) {
 			echo do_shortcode( rwmb_meta( 'deep_featured_video_meta' ) );
-		} else { ?>
+		} else {
+			if ( $enable_single_fimage == '0' ) {
+				return;
+			}
+			?>
 			<figure class="single-featured-image image-id-<?php echo get_post_thumbnail_id(); ?>">
 				<?php get_the_image( array(
 					'meta_key'     => array( 'Full', 'Full' ),
@@ -96,7 +103,7 @@ class Deep_Blog_Helper {
 	 *
 	 * @since   1.0.0
 	 */
-	public static function read_more( $post_id = null, $text ) {
+	public static function read_more( $post_id = null, $text = null ) {
 		$post_id = $post_id ? $post_id : get_the_ID();
 		$text    = $text ? $text : esc_html__( 'Read More', 'deep' );
 
@@ -128,7 +135,7 @@ class Deep_Blog_Helper {
 	 *
 	 * @since   1.0.0
 	 */
-	public static function date( $post_id = null, $date_format ) {
+	public static function date( $post_id = null, $date_format = null ) {
 		$post_id     = $post_id ? $post_id : get_the_ID();
 		$time_string = sprintf(
 			'<time datetime="%1$s">%2$s</time>',
@@ -157,7 +164,7 @@ class Deep_Blog_Helper {
 	 *
 	 * @since   1.0.0
 	 */
-	public static function comments_number( $post_id = null, $no_comments, $one_comment ) {
+	public static function comments_number( $post_id = null, $no_comments = null, $one_comment = null ) {
 		$post_id = $post_id ? $post_id : get_the_ID();
 
 		if ( comments_open( $post_id ) || get_comments_number( $post_id ) ) {
@@ -206,7 +213,7 @@ class Deep_Blog_Helper {
 	 */
 	public static function socials( $social ) {
 		if( $social == 1 ) {
-			deep_social_share( get_the_id() );	
+			deep_social_share( get_the_id() );
 		}
 	}
 
@@ -300,7 +307,7 @@ class Deep_Blog_Helper {
 				</a>
 			</div>
 		<?php
-		} 
+		}
 	}
 
 	/**
@@ -327,11 +334,11 @@ class Deep_Blog_Helper {
 					</div>
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), 275 ); ?>
 					<p><?php echo get_the_author_meta( 'description' ); ?></p>
-				</div>	
+				</div>
 			<?php }
 		endif;
 	}
-	
+
 	/**
 	 * Get Post Author Review.
 	 *
@@ -351,11 +358,11 @@ class Deep_Blog_Helper {
 				foreach ( $reviews as $item ) {
 					if ( !empty( $item['0'] ) and !empty( $item['1'] ) ) {
 						// All Empty stars
-						for ( $i=0; $i < 5; $i++ ) { 
+						for ( $i=0; $i < 5; $i++ ) {
 							$item_empty_stars .= '<i class="wn-far wn-fa-star"></i>';
 						}
 						// All full stars
-						for ( $i=0; $i < $item['1']; $i++ ) { 
+						for ( $i=0; $i < $item['1']; $i++ ) {
 							$item_full_stars .= '<i class="wn-fas wn-fa-star full-stars"></i>';
 						}
 						$total_vots = $total_vots + round( $item['1'] );
@@ -397,7 +404,7 @@ class Deep_Blog_Helper {
 							<?php }
 
 							// half stars
-							if ( ! empty( $decimals['1'] ) ) : 
+							if ( ! empty( $decimals['1'] ) ) :
 								if ( $decimals['1'] <= 5 ) { ?>
 									<i class="wn-fas wn-fa-star-half half-stars"></i>
 								<?php } elseif ( $decimals['1'] > 5 ) { ?>
@@ -465,14 +472,15 @@ class Deep_Blog_Helper {
 				<?php } if( $enable_category_meta ){ ?>
 					<h6 class="blog-cat">
 						<i class="ti-folder"></i>
-						<?php the_category(', '); deep_category_color(); ?> 
+						<?php the_category(', '); deep_category_color(); ?>
 					</h6>
 				<?php } if( $enable_comments_meta ){ ?>
 					<h6 class="blog-comments">
 						<i class="ti-comment"></i>
-						<?php comments_number( ); ?> 
+						<?php comments_number( ); ?>
 					</h6>
 				<?php } if ( $enable_views_meta ) { ?>
+					<?php deep_setViews( get_the_ID() ); ?>
 					<h6 class="blog-views">
 						<i class="wn-far wn-fa-eye"></i>
 						<span><?php echo deep_getViews(get_the_ID()); ?></span>
@@ -526,7 +534,7 @@ class Deep_Blog_Helper {
 						</div> <?php
 						while ( $my_query->have_posts() ) {
 							$my_query->the_post();
-							$post_ids[] = $post->ID; 
+							$post_ids[] = $post->ID;
 							$thumbnail_url = get_the_post_thumbnail_url();
 							$thumbnail_id  = get_post_thumbnail_id();
 							if( !empty( $thumbnail_url ) ) {
@@ -570,7 +578,7 @@ class Deep_Blog_Helper {
 							$rec_query = new wp_query($args);
 							if ( $rec_query->have_posts() ) {
 								while ( $rec_query->have_posts() ) {
-									$rec_query->the_post(); 
+									$rec_query->the_post();
 									$thumbnail_url = get_the_post_thumbnail_url();
 									$thumbnail_id  = get_post_thumbnail_id();
 									if( !empty( $thumbnail_url ) ) {
@@ -648,7 +656,7 @@ class Deep_Blog_Helper {
 									<div class="rec-post-type2-content">
 										<div class="category" style="background: <?php echo deep_category_color(); ?>"><?php the_category(', ');  ?></div>
 										<p><?php the_time(get_option( 'date_format' )) ?></p>
-										<h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>												
+										<h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
 									</div>
 								</article>
 							</div>
@@ -740,7 +748,7 @@ class Deep_Blog_Helper {
 									</div>
 									<div class="rec-post-type3-content">
 										<p><?php the_time(get_option( 'date_format' )) ?></p>
-										<h5><a href="<?php the_permalink(); ?>" class="hcolorf"><?php the_title(); ?></a></h5>												
+										<h5><a href="<?php the_permalink(); ?>" class="hcolorf"><?php the_title(); ?></a></h5>
 									</div>
 								</article>
 							</div>

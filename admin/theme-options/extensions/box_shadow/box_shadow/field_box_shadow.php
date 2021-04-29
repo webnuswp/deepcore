@@ -42,7 +42,7 @@ if (!class_exists('ReduxFramework_box_shadow')) {
          * @access      public
          * @return      void
          */
-        public function __construct($field = array(), $value = '', $parent){
+        public function __construct($field = array(), $value = '', $parent = null){
 
             $this->parent = $parent;
             $this->field  = $field;
@@ -83,15 +83,15 @@ if (!class_exists('ReduxFramework_box_shadow')) {
          * getRGBA.  Returns formatted color rgba.
          */
         private function getRGBA($color, $opacity = false){
-            
-            $default = 'rgb(0,0,0,0)';    
-    
+
+            $default = 'rgb(0,0,0,0)';
+
             if (empty($color))
-                return $default;    
+                return $default;
 
             if ($color[0] == '#')
                 $color = substr($color, 1);
-            
+
             if (strlen($color) == 6){
                 $hex = array($color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5]);
             }
@@ -101,8 +101,8 @@ if (!class_exists('ReduxFramework_box_shadow')) {
             else{
                 return $default;
             }
-               
-            $rgb = array_map('hexdec', $hex);    
+
+            $rgb = array_map('hexdec', $hex);
 
             if ($opacity) {
                 if (abs($opacity) > 1){
@@ -112,7 +112,7 @@ if (!class_exists('ReduxFramework_box_shadow')) {
             }
             else {
                 $output = 'rgb(' . implode(",", $rgb) . ')';
-            }    
+            }
 
             return $output;
 
@@ -417,11 +417,11 @@ if (!class_exists('ReduxFramework_box_shadow')) {
             if ($this->field['preview'] === true) {
 
                 echo '<div class="clearfix"></div><div class="shadow-previewer" original-title="' . __('Shadow Preview', 'redux-framework') . '">';
- 
+
 
                 echo '<div class="shadow-previewer-inner"></div>';
 
-                
+
 
 
 
@@ -478,7 +478,7 @@ if (!class_exists('ReduxFramework_box_shadow')) {
         public function output() {
 
             if ( ! empty ( $this->value ) ){
-               
+
                 $horizontal     = isset( $this->value['horizontal'] )       ? $this->value['horizontal']    : '0px';
                 $vertical       = isset( $this->value['vertical'] )         ? $this->value['vertical']      : '0px';
                 $blur           = isset( $this->value['blur'] )             ? $this->value['blur']          : '0px';
@@ -487,7 +487,7 @@ if (!class_exists('ReduxFramework_box_shadow')) {
                 $opacity        = isset( $this->value['opacity'] )          ? $this->value['opacity']       : '1';
                 $shadow_type    = isset( $this->value['shadow-type'] )      ? $this->value['shadow-type']   : '';
 
-                
+
 
                 //unset shadow type if it is not Inset
                 if ( !empty ( $shadow_type ) && $shadow_type != 'inset' ){
@@ -522,8 +522,8 @@ if (!class_exists('ReduxFramework_box_shadow')) {
                     }
                 }
             }
-            
-        }  
+
+        }
 
     }
 }

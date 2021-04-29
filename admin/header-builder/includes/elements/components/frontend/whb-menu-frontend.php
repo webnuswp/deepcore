@@ -10,6 +10,7 @@ function whb_menu_f( $atts, $uniqid, $once_run_flag, $mobile_sticky ) {
 				'height_100'                => 'false',
 				'extra_class'               => '',
 				'show_mobile_menu'          => 'true',
+				'deep_menu_location'        => 'false',
 				'mobile_menu_display_width' => '',
 				'show_parent_arrow'         => 'true',
 				'parent_arrow_direction'    => 'bottom',
@@ -46,27 +47,27 @@ function whb_menu_f( $atts, $uniqid, $once_run_flag, $mobile_sticky ) {
 
 	if ( $once_run_flag ) :
 		if ( ! empty( $menu ) && is_nav_menu( $menu ) ) {
-			$menu_out = wp_nav_menu(
-				array(
-					'menu'        => $menu,
-					'container'   => false,
-					'menu_id'     => 'nav' . $i++,
-					'menu_class'  => 'nav',
-					'depth'       => '5',
-					'fallback_cb' => 'wp_page_menu',
-					'items_wrap'  => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-					'echo'        => false,
-					'walker'      => new wn_description_walker(),
-				)
-			);
-
-			if ( $show_mobile_menu == 'true' ) {
-				$responsive_menu_out = wp_nav_menu(
+			if ( $deep_menu_location == 'true' ) {
+				$menu_out = wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'container'   => false,
+						'menu_id'     => 'nav' . $i++,
+						'menu_class'  => 'nav',
+						'depth'       => '5',
+						'fallback_cb' => 'wp_page_menu',
+						'items_wrap'  => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+						'echo'        => false,
+						'walker'      => new wn_description_walker(),
+					)
+				);
+			} else {
+				$menu_out = wp_nav_menu(
 					array(
 						'menu'        => $menu,
 						'container'   => false,
-						'menu_id'     => 'responav' . $i++,
-						'menu_class'  => 'responav',
+						'menu_id'     => 'nav' . $i++,
+						'menu_class'  => 'nav',
 						'depth'       => '5',
 						'fallback_cb' => 'wp_page_menu',
 						'items_wrap'  => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -75,6 +76,41 @@ function whb_menu_f( $atts, $uniqid, $once_run_flag, $mobile_sticky ) {
 					)
 				);
 			}
+
+			if ( $deep_menu_location == 'true' ) {
+				if ( $show_mobile_menu == 'true' ) {
+					$responsive_menu_out = wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'container'   => false,
+							'menu_id'     => 'responav' . $i++,
+							'menu_class'  => 'responav',
+							'depth'       => '5',
+							'fallback_cb' => 'wp_page_menu',
+							'items_wrap'  => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+							'echo'        => false,
+							'walker'      => new wn_description_walker(),
+						)
+					);
+				}
+			} else {
+				if ( $show_mobile_menu == 'true' ) {
+					$responsive_menu_out = wp_nav_menu(
+						array(
+							'menu'        => $menu,
+							'container'   => false,
+							'menu_id'     => 'responav' . $i++,
+							'menu_class'  => 'responav',
+							'depth'       => '5',
+							'fallback_cb' => 'wp_page_menu',
+							'items_wrap'  => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+							'echo'        => false,
+							'walker'      => new wn_description_walker(),
+						)
+					);
+				}
+			}
+
 		} else {
 			$menu_out = '
 				<div class="whb-element">
@@ -85,10 +121,6 @@ function whb_menu_f( $atts, $uniqid, $once_run_flag, $mobile_sticky ) {
 			$responsive_menu_out = $show_mobile_menu == 'true' ? $menu_out : '';
 		}
 
-		// styles
-		// if ( $mobile_menu_display_width ) :
-		// WHB_Helper::set_dynamic_styles( '@media only screen and ( max-width: ' . $mobile_menu_display_width . ' ) {' . $class . ' { ' . $mobile_style  . '} }' );
-		// endif;
 		$dynamic_style  = '';
 		$dynamic_style .= whb_styling_tab_output(
 			$atts,
@@ -144,40 +176,42 @@ function whb_menu_f( $atts, $uniqid, $once_run_flag, $mobile_sticky ) {
 					</div>';
 			}
 		} else {
-			if ( $show_mobile_menu == 'true' ) {
-				$responsive_menu_out = wp_nav_menu(
-					array(
-						'menu'        => $menu,
-						'container'   => false,
-						'menu_id'     => 'responav' . $i++,
-						'menu_class'  => 'responav',
-						'depth'       => '5',
-						'fallback_cb' => 'wp_page_menu',
-						'items_wrap'  => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-						'echo'        => false,
-						'walker'      => new wn_description_walker(),
-					)
-				);
-			}
 			$out .= '
 				<div class="whb-responsive-menu-icon-wrap" data-uniqid="' . esc_attr( $uniqid ) . '">
 					<div class="whb-menu-cross-icon whb-responsive-menu-icon"></div>
 				</div>';
 		}
 	} else {
-		$menu_out = wp_nav_menu(
-			array(
-				'menu'        => $menu,
-				'container'   => false,
-				'menu_id'     => 'nav' . $i++,
-				'menu_class'  => 'nav',
-				'depth'       => '5',
-				'fallback_cb' => 'wp_page_menu',
-				'items_wrap'  => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-				'echo'        => false,
-				'walker'      => new wn_description_walker(),
-			)
-		);
+		if ( $deep_menu_location == 'true' ) {
+			$menu_out = wp_nav_menu(
+				array(
+					'theme_location' => 'menu-1',
+					'container'   => false,
+					'menu_id'     => 'nav' . $i++,
+					'menu_class'  => 'nav',
+					'depth'       => '5',
+					'fallback_cb' => 'wp_page_menu',
+					'items_wrap'  => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					'echo'        => false,
+					'walker'      => new wn_description_walker(),
+				)
+			);
+		} else {
+			$menu_out = wp_nav_menu(
+				array(
+					'menu'        => $menu,
+					'container'   => false,
+					'menu_id'     => 'nav' . $i++,
+					'menu_class'  => 'nav',
+					'depth'       => '5',
+					'fallback_cb' => 'wp_page_menu',
+					'items_wrap'  => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					'echo'        => false,
+					'walker'      => new wn_description_walker(),
+				)
+			);
+		}
+
 		// normal menu
 		$out .= '<nav class="whb-element whb-nav-wrap' . esc_attr( $extra_class ) . $desc_item . $parent_arrow . $full_menu . $show_mobile_menu_class . '" data-id="whb-nav-wrap-' . esc_attr( $uniqid ) . '" data-uniqid="' . esc_attr( $uniqid ) . '">' . $menu_out . '</nav>';
 	}
@@ -186,13 +220,12 @@ function whb_menu_f( $atts, $uniqid, $once_run_flag, $mobile_sticky ) {
 	$i++;
 }
 
-add_filter('nav_menu_css_class' , 'current_nav_class' , 10 , 2);
-
-function current_nav_class ($classes, $item) {
-  if (in_array('current-menu-item', $classes) ){
-    $classes[] = 'current ';
-  }
-  return $classes;
+function deep_current_nav_class( $classes, $item ) {
+	if ( in_array( 'current-menu-item', $classes ) ) {
+		$classes[] = 'current ';
+	}
+	return $classes;
 }
+add_filter( 'nav_menu_css_class' , 'deep_current_nav_class' , 10 , 2 );
 
 WHB_Helper::add_element( 'menu', 'whb_menu_f' );

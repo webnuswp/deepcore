@@ -142,6 +142,20 @@
 								window.open( $( this ).attr( 'href' ) );
 							}
 						} );
+						$( this ).find( '#redux-import-upload' ).click( function() {
+							$( '#redux-import-upload-file' ).click();
+						} );
+
+						document.getElementById( 'redux-import-upload-file' ).addEventListener( 'change', function() {
+							var file_to_read = document.getElementById( 'redux-import-upload-file' ).files[0];
+							var fileread = new FileReader();
+							$( '#redux-import-upload span' ).text( ': ' + file_to_read.name );
+							fileread.onload = function() {
+								var content = fileread.result;
+								$( '#import-code-value' ).val( content );
+							};
+							fileread.readAsText( file_to_read );
+						} );
 						$( this ).find( '#redux-export-code-copy' ).click(
 							function( e ) {
 								var $el = $( '#redux-export-code' );
@@ -160,7 +174,8 @@
 								}
 							}
 						);
-						$( this ).find( 'textarea' ).focusout(
+						$( this ).find( 'textarea' ).on(
+							'focusout',
 							function() {
 								var $id = $( this ).attr( 'id' );
 								var $el = $( this );
@@ -222,7 +237,6 @@
 								return false;
 							};
 						};
-
 					}
 				);
 			}

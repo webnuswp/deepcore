@@ -193,11 +193,29 @@ if ( ! class_exists( 'Redux_Functions_Ex', false ) ) {
 		 * @return bool
 		 */
 		public static function s() {
-			if ( ! empty( get_option( 'redux_p' . 'ro_lic' . 'ense_key', false ) ) ) { // phpcs:ignore Generic.Strings.UnnecessaryStringConcat.Found
+			if ( ! get_option( 'redux_p' . 'ro_lic' . 'ense_key', false ) ) { // phpcs:ignore Generic.Strings.UnnecessaryStringConcat.Found
 				$s = get_option( 'redux_p' . 'ro_l' . 'icense_status', false ); // phpcs:ignore Generic.Strings.UnnecessaryStringConcat.Found
-				if ( ! empty( $s ) && in_array( $s, array( 'valid', 'site_inactive' ), true ) ) {
+
+				if ( false !== $s && in_array( $s, array( 'valid', 'site_inactive' ), true ) ) {
 					return true;
 				}
+			}
+
+			return false;
+		}
+
+		/**
+		 * Is file in theme.
+		 *
+		 * @param     string $file File to check.
+		 *
+		 * @return bool
+		 */
+		public static function file_in_theme( $file ) {
+			if ( strpos( dirname( $file ), get_template_directory() ) !== false ) {
+				return true;
+			} elseif ( strpos( dirname( $file ), get_stylesheet_directory() ) !== false ) {
+				return true;
 			}
 			return false;
 		}
@@ -212,6 +230,10 @@ if ( ! class_exists( 'Redux_Functions_Ex', false ) ) {
 		public static function is_inside_plugin( $file ) {
 			$file            = self::wp_normalize_path( $file );
 			$plugin_basename = self::wp_normalize_path( plugin_basename( $file ) );
+
+			if ( self::file_in_theme( $file ) ) {
+				return false;
+			}
 
 			if ( $plugin_basename !== $file ) {
 				$slug = explode( '/', $plugin_basename );
@@ -239,6 +261,11 @@ if ( ! class_exists( 'Redux_Functions_Ex', false ) ) {
 		 * @return array|bool
 		 */
 		public static function is_inside_theme( $file = '' ) {
+
+			if ( ! self::file_in_theme( $file ) ) {
+				return false;
+			}
+
 			$theme_paths = array(
 				self::wp_normalize_path( get_template_directory() )   => get_template_directory_uri(),
 				// parent.
@@ -282,9 +309,9 @@ if ( ! class_exists( 'Redux_Functions_Ex', false ) ) {
 						if ( false !== $key ) {
 							unset( $theme_paths[ $key ] );
 						}
-
-						$data['parent_slug'] = end( explode( '/', end( $theme_paths ) ) );
-						$data['parent_slug'] = end( explode( '/', end( $theme_paths ) ) );
+						$data['parent_slug'] = end( $theme_paths );
+						$data['parent_slug'] = explode( '/', $data['parent_slug'] );
+						$data['parent_slug'] = end( $data['parent_slug'] );
 					}
 
 					return $data;

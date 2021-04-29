@@ -4,6 +4,7 @@ function whb_logo( $atts, $uniqid, $once_run_flag ) {
 		'type'				=> 'image',
 		'logo'				=> '',
 		'transparent_logo'	=> '',
+		'logo_custom_url'	=> '',
 		'logo_text'			=> '',
 		'extra_class'		=> '',
 	), $atts ));
@@ -13,6 +14,7 @@ function whb_logo( $atts, $uniqid, $once_run_flag ) {
 	$logo				= $logo ? wp_get_attachment_url( $logo ) : DEEP_ASSETS_URL . 'images/whb-logo.png';
 	$transparent_logo	= $transparent_logo ? wp_get_attachment_url( $transparent_logo ) : $logo;
 	$extra_class		= $extra_class ? ' ' . $extra_class : '' ;
+	$logo_custom_url	= $logo_custom_url ? $logo_custom_url : home_url( '/' );
 
 	if ( $once_run_flag ) :
 		$dynamic_style = '';
@@ -26,7 +28,7 @@ function whb_logo( $atts, $uniqid, $once_run_flag ) {
 	endif;
 
 	// render
-	$out .= '<a href="' . esc_url( home_url( '/' ) ) . '" class="whb-element whb-logo' . esc_attr( $extra_class ) . '" data-id="whb-logo-' . esc_attr( $uniqid ) . '">';
+	$out .= '<a href="' . esc_url( $logo_custom_url ) . '" class="whb-element whb-logo' . esc_attr( $extra_class ) . '" data-id="whb-logo-' . esc_attr( $uniqid ) . '">';
 		if ( ( ! empty( $logo ) || ! empty( $transparent_logo ) ) && $type == 'image' ) {
 			$deep_options = deep_options();
 			$transparent_header = isset($deep_options['page_transparent_dis']) ? $deep_options['page_transparent_dis'] : 'none' ;
@@ -42,7 +44,7 @@ function whb_logo( $atts, $uniqid, $once_run_flag ) {
 			$out .= '<img class="whb-logo' . $transparent_header_class . '" src="' . esc_url( $src ) . '" alt="'. get_bloginfo('name') .'">';
 		} else {
 			$out .= '<span class="wn-site-name">' . $logo_text . '</span>';
-		}		
+		}
 	$out .= '</a>';
 
 	return $out;

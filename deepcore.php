@@ -3,7 +3,7 @@
  * Plugin Name:     Deep Core
  * Plugin URI:      https://webnus.net/deep-core-plugin/
  * Description:     Deep theme core functions.
- * Version:         1.0.22
+ * Version:         1.0.23
  * Author:          Webnus
  * Author URI:      https://webnus.net/
  * License URI:     http://www.gnu.org/licenses/gpl-2.0.txt
@@ -48,8 +48,8 @@ if ( $the_theme == 'deep-light' || $the_theme == 'deep' || $the_theme == 'deep-m
 		define( 'DEEP_ASSETS_URL', DEEP_URL . 'assets/dist/' );
 	}
 	if ( ! defined( 'DEEP_VERSION' ) ) {
-		define( 'DEEP_VERSION', '1.0.22' );
-	}	
+		define( 'DEEP_VERSION', '1.0.23' );
+	}
 } else {
 	if ( ! defined( 'DEEP_DIR' ) ) {
 		define( 'DEEP_DIR', get_template_directory() . '/' );
@@ -93,7 +93,7 @@ function deep_load_textdomain() {
  *
  * @since   1.0.0
  */
-if ( is_admin() ) {	
+if ( is_admin() ) {
 	require_once DEEP_CORE_DIR . 'admin/class-setup-wizard.php';
 	require_once DEEP_CORE_DIR . 'admin/dashboard/webnus-admin.php';
 }
@@ -104,70 +104,70 @@ function deepcore_free_files_include() {
 	if ( ! function_exists( 'deep_breadcrumbs' ) ) {
 		require_once DEEP_CORE_DIR . 'helper-classes/breadcrumbs.php';
 	}
-	
-	if ( ! class_exists( 'Deep_ColorfulCategories' ) ) {   
+
+	if ( ! class_exists( 'Deep_ColorfulCategories' ) ) {
 		require_once DEEP_CORE_DIR . 'helper-classes/cat-field.php';
 	}
-	
+
 	if ( ! class_exists( 'WPSiteShowIDs' ) ) {
 		require_once DEEP_CORE_DIR . 'helper-classes/show-ids.php';
 	}
-	
+
 	if ( ! class_exists( 'Get_The_Image' ) ) {
 		require_once DEEP_CORE_DIR . 'helper-classes/get-the-image.php';
 	}
-	
+
 	if ( ! class_exists( 'Deep_Blog_Helper' ) ) {
 		require_once DEEP_CORE_DIR . 'helper-classes/deep-blog-helper.php';
 	}
-	
+
 	if ( ! function_exists( 'process_simple_like' ) ) {
 		require_once DEEP_CORE_DIR . 'helper-classes/wn-like.php';
 	}
-	
+
 	if ( ! class_exists( 'RWMB_Loader' ) ) {
 		require_once DEEP_CORE_DIR . 'admin/meta-box/meta-box-core/meta-box.php';
 	}
-	
+
 	if ( ! function_exists( 'deep_meta_boxes' ) ) {
 		require_once DEEP_CORE_DIR . 'admin/meta-box/meta-box-config.php';
 	}
-	
+
 	if ( ! class_exists( 'Webnus_Header_Builder' ) ) {
 		require_once DEEP_CORE_DIR . 'admin/header-builder/webnus-header-builder.php';
 	}
-	
+
 	if ( ! class_exists( 'ReduxFramework' ) ) {
 		require_once DEEP_CORE_DIR . 'admin/theme-options/ReduxCore/framework.php';
 		require_once DEEP_CORE_DIR . 'admin/theme-options/theme-options-config.php';
 	}
-	
+
 	if ( defined( 'DEEP_DIR' ) ) {
 		require_once DEEP_CORE_DIR . 'dynamicfiles/dyncss.php';
-	
+
 		require_once DEEP_CORE_DIR . 'functions/functions-helper.php';
-	
+
 		require_once DEEP_CORE_DIR . 'functions/functions-general.php';
-	
+
 		require_once DEEP_CORE_DIR . 'functions/frontend.php';
-	
+
 		require_once DEEP_CORE_DIR . 'functions/functions-content.php';
-	
+
 		if ( ! class_exists( 'WN_Nav_Menu_Item_Custom_Fields' ) ) {
 			require_once DEEP_CORE_DIR . 'navigation/navigation.php';
 			require_once DEEP_CORE_DIR . 'navigation/mega-menu-post-type.php';
 		}
-		
+
 		require_once DEEP_CORE_DIR . 'footer-builder/footer-builder-post-type.php';
-		
+
 		require_once DEEP_CORE_DIR . 'widgets/widgets-init.php';
-		
+
 		require_once DEEP_CORE_DIR . 'webnus-core/webnus-core.php';
-	
+
 		require_once DEEP_CORE_DIR . 'templates/single-templates/single-templates.php';
 
 		require_once DEEP_CORE_DIR . 'importer/config/setup.php';
-		
+
 		add_action(
 			'after_setup_theme',
 			function() {

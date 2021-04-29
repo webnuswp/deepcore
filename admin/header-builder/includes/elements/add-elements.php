@@ -18,7 +18,7 @@
 			<div class="whb-elements-item w-col-sm-4" data-element="menu">
 				<a href="#"><i class="ti-align-justify"></i><span class="whb-element-name"><?php esc_html_e( 'Menu', 'deep' ); ?></span></a>
 			</div>
-	
+
 			<!-- Search -->
 			<div class="whb-elements-item w-col-sm-4" data-element="search">
 				<a href="#"><i class="ti-search"></i><span class="whb-element-name"><?php esc_html_e( 'Search', 'deep' ); ?></span></a>
@@ -76,10 +76,12 @@
 				<a href="#"><i class="ti-smallcap"></i><span class="whb-element-name"><?php esc_html_e( 'Text', 'deep' ); ?></span></a>
 			</div>
 
-			<!-- Language -->
-			<div class="whb-elements-item w-col-sm-4" data-element="language">
-				<a href="#"><i class="wn-fa wn-fa-language"></i><span class="whb-element-name"><?php esc_html_e( 'Language Switcher', 'deep' ); ?></span></a>
-			</div>
+			<?php if ( function_exists( 'pll_languages_list' ) || defined( 'WPML_PLUGIN_BASENAME' ) ): ?>
+				<!-- Language -->
+				<div class="whb-elements-item w-col-sm-4" data-element="language">
+					<a href="#"><i class="wn-fa wn-fa-language"></i><span class="whb-element-name"><?php esc_html_e( 'Language Switcher', 'deep' ); ?></span></a>
+				</div>
+			<?php endif; ?>
 
 			<!-- Weather -->
 			<div class="whb-elements-item w-col-sm-4" data-element="weather">
@@ -111,25 +113,7 @@
 				<a href="#"><i class="ti-announcement"></i><span class="whb-element-name"><?php esc_html_e( 'Advertisement', 'deep' ); ?></span></a>
 			</div>
 
-			<!-- Buddypress Notification -->
-			<div class="whb-elements-item w-col-sm-4" data-element="bp-notification">
-				<a href="#"><i class="ti-bell"></i><span class="whb-element-name"><?php esc_html_e( 'Buddypress Notification', 'deep' ); ?></span></a>
-			</div>
 
-			<!-- Buddypress Messages -->
-			<div class="whb-elements-item w-col-sm-4" data-element="bp-messages">
-				<a href="#"><i class="ti-email"></i><span class="whb-element-name"><?php esc_html_e( 'Buddypress Messages', 'deep' ); ?></span></a>
-			</div>
-
-			<!-- Hotel Cart -->
-			<div class="whb-elements-item w-col-sm-4" data-element="wp-hotel-booking-cart">
-				<a href="#"><i class="ti-shopping-cart"></i><span class="whb-element-name"><?php esc_html_e( 'Hotel Cart', 'deep' ); ?></span></a>
-			</div>
-
-			<!-- Hotel Booking-form -->
-			<div class="whb-elements-item w-col-sm-4" data-element="booking-form">
-				<a href="#"><i class="ti-calendar"></i><span class="whb-element-name"><?php esc_html_e( 'Hotel Booking form', 'deep' ); ?></span></a>
-			</div>
 
 		</div>
 	</div> <!-- end whb-modal-contents-wrap -->

@@ -59,7 +59,7 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 	}
 
 	/**
-	 * enqueue JS 
+	 * enqueue JS
 	 *
 	 * @since 1.0.0
 	 * @access public
@@ -68,7 +68,7 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 	public function get_script_depends() {
 
 		return [ 'wnblog', 'jquery-masonry' ];
-		
+
 	}
 
 	/**
@@ -339,7 +339,7 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 	protected function render() {
 
 		$settings = $this->get_settings_for_display();
-		
+
 		ob_start();
 		// Class & ID
 		$shortcodeclass		= $settings['shortcodeclass'] ? $settings['shortcodeclass'] : '';
@@ -409,9 +409,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 		while ($query -> have_posts()) : $query -> the_post();
 			if ( $type == '2' ) {
 
-				echo '<div class="blg-def-list wn-blog-ajax">';					
+				echo '<div class="blg-def-list wn-blog-ajax">';
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type2.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type2.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type2');
 					}
@@ -420,18 +420,18 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 			} elseif ( $type == '4' ) {
 
 				if( $p_count == '0' ) {
-					echo '<div class="blg-def-full wn-blog-ajax">';						
+					echo '<div class="blg-def-full wn-blog-ajax">';
 						if ( defined( 'DEEP_HANDLE' ) ) {
-							include DEEP_INCLUDES_DIR . 'templates/loops/blogloop.php';
+							include DEEP_CORE_DIR . 'templates/loops/blogloop.php';
 						} else {
 							get_template_part( 'inc/templates/loops/blogloop');
 						}
 					echo '</div>';
 
 				} else {
-					echo '<div class="blg-def-list wn-blog-ajax">';						
+					echo '<div class="blg-def-list wn-blog-ajax">';
 						if ( defined( 'DEEP_HANDLE' ) ) {
-							include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type2.php';
+							include DEEP_CORE_DIR . 'templates/loops/blogloop-type2.php';
 						} else {
 							get_template_part( 'inc/templates/loops/blogloop-type2');
 						}
@@ -442,9 +442,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 				$p_count++;
 
 			} elseif ( $type == '3' ) {
-					
+
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type3.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type3.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type3');
 					}
@@ -453,9 +453,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 
 				if ( $p_count == '0' ) {
 
-					echo '<div class="blg-def-full wn-blog-ajax">';						
+					echo '<div class="blg-def-full wn-blog-ajax">';
 						if ( defined( 'DEEP_HANDLE' ) ) {
-							include DEEP_INCLUDES_DIR . 'templates/loops/blogloop.php';
+							include DEEP_CORE_DIR . 'templates/loops/blogloop.php';
 						} else {
 							get_template_part( 'inc/templates/loops/blogloop');
 						}
@@ -463,9 +463,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 					echo '<div class="row">';
 
 				} else {
-					
+
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type3.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type3.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type3');
 					}
@@ -476,9 +476,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 
 			} elseif ( $type == '16' ) {
 
-				echo '<div class="wn-blog-ajax">';				
+				echo '<div class="wn-blog-ajax">';
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-masonry.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-masonry.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-masonry' );
 					}
@@ -577,9 +577,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 													if(is_array($ids) && isset($ids['ids']))
 														$ids = $ids['ids'];
 														$galley_url = array();
-														$galley_id = explode(",",$ids); 
+														$galley_id = explode(",",$ids);
 
-														?>						
+														?>
 
 														<div class="post-gallery-format">
 															<div class="gl-img owl-carousel owl-theme">
@@ -593,17 +593,17 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 																		// if main class not exist get it
 																		if ( !class_exists( 'Wn_Img_Maniuplate' ) ) {
 																			require_once DEEP_CORE_DIR . 'helper-classes/class_webnus_manuplate.php';
-																		}									
+																		}
 																		$thumbnail_url = $image->m_image( $galley_id[$i], wp_get_attachment_url( $galley_id[$i] ) , '385' , '293' ); // set required and get result
 
 																		echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . get_the_title() . '">';
 
 																	}
 
-																} ?>											
-															</div>													
-														</div>	
-														<?php															
+																} ?>
+															</div>
+														</div>
+														<?php
 												}
 											} else {
 												if ( $thumbnail_url ) { ?>
@@ -632,18 +632,18 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 							<?php $deep_i++;
 			} elseif ( $type == '6' ) { // personal blog
 
-				echo '<div class="blg-personal-full blgtyp10 wn-blog-ajax">';						
+				echo '<div class="blg-personal-full blgtyp10 wn-blog-ajax">';
 						if ( defined( 'DEEP_HANDLE' ) ) {
-							include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type1.php';
+							include DEEP_CORE_DIR . 'templates/loops/blogloop-type1.php';
 						} else {
 							get_template_part( 'inc/templates/loops/blogloop-type1');
 						}
 				echo '</div>';
 
 			} elseif ( $type == '7' ) { // personal blog
-				echo '<div class="blg-personal-list wn-blog-ajax">';					
+				echo '<div class="blg-personal-list wn-blog-ajax">';
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type5.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type5.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type5');
 					}
@@ -651,9 +651,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 			} elseif ( $type == '9' ) { // personal blog
 
 					if( $p_count == '0' ) {
-						echo '<div class="blg-personal-full blgfltl wn-blog-ajax">';							
+						echo '<div class="blg-personal-full blgfltl wn-blog-ajax">';
 							if ( defined( 'DEEP_HANDLE' ) ) {
-								include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type1.php';
+								include DEEP_CORE_DIR . 'templates/loops/blogloop-type1.php';
 							} else {
 								get_template_part( 'inc/templates/loops/blogloop-type1');
 							}
@@ -661,9 +661,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 
 					} else {
 
-						echo '<div class="blg-personal-list blgfltl wn-blog-ajax">';							
+						echo '<div class="blg-personal-list blgfltl wn-blog-ajax">';
 							if ( defined( 'DEEP_HANDLE' ) ) {
-								include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type5.php';
+								include DEEP_CORE_DIR . 'templates/loops/blogloop-type5.php';
 							} else {
 								get_template_part( 'inc/templates/loops/blogloop-type5');
 							}
@@ -675,9 +675,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 
 			} elseif ( $type == '8' ) { // personal blog
 
-				echo '<div class="blg-personal-grid col-md-6 blg-typ3 blgtyp10 wn-blog-ajax">';					
+				echo '<div class="blg-personal-grid col-md-6 blg-typ3 blgtyp10 wn-blog-ajax">';
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type7.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type7.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type7');
 					}
@@ -688,9 +688,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 
 				if( $p_count == '0' ) {
 
-					echo '<div class="blg-personal-full blgtyp10 wn-blog-ajax">';					
+					echo '<div class="blg-personal-full blgtyp10 wn-blog-ajax">';
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type1.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type1.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type1');
 					}
@@ -698,9 +698,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 
 				} else {
 
-					echo '<div class="blg-personal-grid wn-blog-ajax col-md-6 blg-typ3 blgtyp10">';					
+					echo '<div class="blg-personal-grid wn-blog-ajax col-md-6 blg-typ3 blgtyp10">';
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type7.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type7.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type7');
 					}
@@ -713,9 +713,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 
 			} elseif ( $type == '11' ) { // Magazine
 				echo '<div class="blg-magazine-full blgtyp11 wn-blog-ajax">';
-				if( $p_count == '0' ) {					
+				if( $p_count == '0' ) {
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type6.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type6.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type6');
 					}
@@ -723,62 +723,62 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 				echo '</div>';
 			} elseif ( $type == '18' ) { // Magazine
 				echo '<div class="blg-minimal-full blgtyp18 wn-blog-ajax">';
-				if( $p_count == '0' ) {											
+				if( $p_count == '0' ) {
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type9.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type9.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type9');
 					}
-				}					
+				}
 				echo '</div>';
 			} elseif ( $type == '12' ) { // Magazine
-				echo '<div class="blg-magazine-list wn-blog-ajax">';				
+				echo '<div class="blg-magazine-list wn-blog-ajax">';
 				if ( defined( 'DEEP_HANDLE' ) ) {
-					include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type4.php';
+					include DEEP_CORE_DIR . 'templates/loops/blogloop-type4.php';
 				} else {
 					get_template_part( 'inc/templates/loops/blogloop-type4');
 				}
 				echo '</div>';
 			} elseif ( $type == '19' ) { // Magazine
-				echo '<div class="blg-minimal-list wn-blog-ajax">';				
+				echo '<div class="blg-minimal-list wn-blog-ajax">';
 				if ( defined( 'DEEP_HANDLE' ) ) {
-					include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type4.php';
+					include DEEP_CORE_DIR . 'templates/loops/blogloop-type4.php';
 				} else {
 					get_template_part( 'inc/templates/loops/blogloop-type4');
 				}
 				echo '</div>';
 			} elseif ( $type == '14' ) { // Magazine
 				if( $p_count == '0' ) {
-					echo '<div class="blg-magazine-full blgtyp11 wn-blog-ajax">';					
+					echo '<div class="blg-magazine-full blgtyp11 wn-blog-ajax">';
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type6.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type6.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type6');
 					}
 					echo '</div>';
 				} else {
-					echo '<div class="blg-magazine-list blgtyp11 wn-blog-ajax">';					
+					echo '<div class="blg-magazine-list blgtyp11 wn-blog-ajax">';
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type4.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type4.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type4');
 					}
 					echo '</div>';
 				}
 				$p_count++;
-			}  elseif ( $type == '21' ) { // Magazine			
+			}  elseif ( $type == '21' ) { // Magazine
 					if( $p_count == '0' ) {
-						echo '<div class="blg-minimal-full blgtyp18 wn-blog-ajax">';						
+						echo '<div class="blg-minimal-full blgtyp18 wn-blog-ajax">';
 						if ( defined( 'DEEP_HANDLE' ) ) {
-							include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type9.php';
+							include DEEP_CORE_DIR . 'templates/loops/blogloop-type9.php';
 						} else {
 							get_template_part( 'inc/templates/loops/blogloop-type9');
 						}
 						echo '</div>';
 					} else {
-						echo '<div class="blg-minimal-list blgtyp18 wn-blog-ajax">';						
+						echo '<div class="blg-minimal-list blgtyp18 wn-blog-ajax">';
 						if ( defined( 'DEEP_HANDLE' ) ) {
-							include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type4.php';
+							include DEEP_CORE_DIR . 'templates/loops/blogloop-type4.php';
 						} else {
 							get_template_part( 'inc/templates/loops/blogloop-type4');
 						}
@@ -787,17 +787,17 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 					$p_count++;
 
 			} elseif ( $type == '13' ) { // Magazine
-				echo '<div class="blg-magazine-grid blgtyp11 col-md-6 wn-blog-ajax">';					
+				echo '<div class="blg-magazine-grid blgtyp11 col-md-6 wn-blog-ajax">';
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type8.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type8.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type8');
 					}
 				echo '</div>';
 			} elseif ( $type == '20' ) { // Magazine
-				echo '<div class="blg-minimal-grid blgtyp11 col-md-6 wn-blog-ajax">';					
+				echo '<div class="blg-minimal-grid blgtyp11 col-md-6 wn-blog-ajax">';
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type8.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type8.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type8');
 					}
@@ -805,15 +805,15 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 			} elseif ( $type == '15' ) { // Magazine
 				$classes = $p_count == '0' ? 'blg-magazine-full blgtyp11 wn-blog-ajax' : 'blg-magazine-grid wn-blog-ajax col-md-6 blg-typ3 blgtyp11';
 				echo '<div class="' . esc_attr( $classes ) . '">';
-				if( $p_count == '0' ) {					
+				if( $p_count == '0' ) {
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type6.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type6.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type6');
 					}
-				} else {					
+				} else {
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type8.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type8.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type8');
 					}
@@ -823,15 +823,15 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 			} elseif ( $type == '22' ) { // Magazine
 				$classes = $p_count == '0' ? 'blg-minimal-full blgtyp18 wn-blog-ajax' : 'blg-minimal-grid wn-blog-ajax col-md-6 blg-typ3 blgtyp18';
 				echo '<div class="' . esc_attr( $classes ) . '">';
-				if( $p_count == '0' ) {					
+				if( $p_count == '0' ) {
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type9.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type9.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type9');
 					}
-				} else {					
+				} else {
 					if ( defined( 'DEEP_HANDLE' ) ) {
-						include DEEP_INCLUDES_DIR . 'templates/loops/blogloop-type8.php';
+						include DEEP_CORE_DIR . 'templates/loops/blogloop-type8.php';
 					} else {
 						get_template_part( 'inc/templates/loops/blogloop-type8');
 					}
@@ -839,9 +839,9 @@ class Webnus_Element_Widgets_Blog extends \Elementor\Widget_Base {
 				$p_count++;
 				echo '</div>';
 			} else {
-				echo '<div class="wn-blog-ajax blg-def-full">';				
+				echo '<div class="wn-blog-ajax blg-def-full">';
 				if ( defined( 'DEEP_HANDLE' ) ) {
-					include DEEP_INCLUDES_DIR . 'templates/loops/blogloop.php';
+					include DEEP_CORE_DIR . 'templates/loops/blogloop.php';
 				} else {
 					get_template_part( 'inc/templates/loops/blogloop');
 				}

@@ -30,29 +30,31 @@
 			<!-- general -->
 			<div class="whb-tab-panel whb-group-panel" data-id="#general">
 				<?php
+					whb_switcher( array(
+						'title'         => esc_html__( 'Use the menu location', 'deep' ),
+						'id'            => 'deep_menu_location',
+						'default'       => 'false',
+						'dependency'	=> array(
+							'false'  	=> array( 'menu' ),
+						),
+					));
+
 					whb_menu( array(
 						'title'			=> esc_html__( 'Select a Menu', 'deep' ),
 						'id'			=> 'menu',
 					));
+
 					whb_switcher( array(
-						'title'         => esc_html__( 'Show mobile menu ?', 'deep' ),
+						'title'         => esc_html__( 'Show mobile menu?', 'deep' ),
 						'id'            => 'show_mobile_menu',
 						'default'       => 'true',
 						'dependency'	=> array(
 							'true'  => array( 'mobile_menu_display_width' ),
 						),
 					));
-					// whb_number_unit( array(
-					// 	'title'			=> esc_html__( 'display responsive toggle menu under ... px', 'deep' ),
-					// 	'id'			=> 'mobile_menu_display_width',
-					// 	'options'		=> array(
-					// 		'px'	=> 'px',
-					// 	),
-					// 	'default_unit'	=> 'px',
-					// ));
 
 					whb_switcher( array(
-						'title'         => esc_html__( 'Show parent menu arrow ?', 'deep' ),
+						'title'         => esc_html__( 'Show parent menu arrow?', 'deep' ),
 						'id'            => 'show_parent_arrow',
 						'default'       => 'true',
 						'dependency'	=> array(
@@ -96,7 +98,7 @@
 
 			<!-- styling -->
 			<div class="whb-tab-panel whb-group-panel" data-id="#styling">
-                
+
                 <?php
 					whb_styling_tab( array(
 						'Menu Item' => array(
@@ -153,8 +155,8 @@
 							array( 'property' => 'color_hover' ),
 							array( 'property' => 'background_color' ),
 							array( 'property' => 'background_color_hover' ),
-							array( 'property' => 'font_size' ),																																									
-							array( 'property' => 'border' ),							
+							array( 'property' => 'font_size' ),
+							array( 'property' => 'border' ),
 						),
 						'Menu Icon' => array(
 							array( 'property' => 'color' ),
@@ -190,7 +192,7 @@
 						'Menu Badge' => array(
 							array( 'property' => 'position' ),
 							array( 'property' => 'color' ),
-							array( 'property' => 'color_hover' ),							
+							array( 'property' => 'color_hover' ),
 							array( 'property' => 'font_size' ),
 							array( 'property' => 'font_weight' ),
 							array( 'property' => 'font_style' ),

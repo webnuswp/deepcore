@@ -8,12 +8,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<h1><?php echo esc_html__( 'Welcome to ', 'deep' ) . Deep_Admin::theme( 'name' ); ?></h1>
 	<div class="about-text"><?php echo Deep_Admin::theme( 'name' ) . esc_html__( ' is now installed and ready to use! Let’s convert your imaginations to reality on the web!', 'deep' ); ?></div>
-	<div class="wp-badge"><?php printf( esc_html__( 'Version %s', 'deep' ), Deep_Admin::theme( 'version' ) ); ?></div>
+	<div class="wp-badge"><?php printf( esc_html__( 'Version %s', 'deep' ), '1.0.23' ); ?></div>
 	<?php do_action( 'deep_before_start_dashboard' ); ?>
 	<h2 class="nav-tab-wrapper wp-clearfix">
 		<?php
 		// Dashboard Menu
-		Deep_Admin::dashboard_menu();		
+		Deep_Admin::dashboard_menu();
 		?>
 	</h2>
 
@@ -67,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div id="webnus-dashboard" class="wrap about-wrap">
 
 		<div class="welcome-content w-clearfix">
-			
+
 		</div>
 		<?php if ( ! defined( 'DEEPFREE' ) ) { ?>
 			<div class="w-row">
@@ -80,9 +80,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<?php esc_html_e('In order to use all theme features and options, please enter your purchase code.','deep') ?>
 						</div>
 						<div class="w-box-content">
-							<?php												
+							<?php
 								$purchase_code = get_option( 'deep_purchase', '' );
-								$purchase_type = get_option( 'deep_purchase_type', 'one' );							
+								$purchase_type = get_option( 'deep_purchase_type', 'one' );
 								$purchase_validation = get_option( 'deep_purchase_validation', '' );
 								$purchase_form_class = $purchase_validation ? 'class="' . esc_attr( $purchase_validation ) . '"' : '';
 							?>
@@ -122,7 +122,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											<span class="wn-radio-indicator <?php echo $purchase_type == 'lifetime' ? 'checked' : ''; ?>"></span>
 											<?php esc_html_e( 'Lifetime Access', 'deep' ); ?>
 										</label>
-									</div>								
+									</div>
 								</div>
 								<div id="wnGetLicense">
 									<input placeholder="<?php echo esc_html__( 'Put your purchase code here', 'deep' ); ?>" id="wnPurchaseCode" name="deep_purchase" type="password" value="<?php echo $purchase_code; ?>">
@@ -431,7 +431,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<?php esc_html_e('Changelog (Updates)','deep'); ?>
 						</div>
 						<div class="w-box-content">
-						<?php include_once DEEP_CORE_DIR . 'Change_log.php'; ?>		
+						<?php include_once DEEP_CORE_DIR . 'Change_log.php'; ?>
 							<pre><?php echo '' . $change_log; ?></pre>
 						</div>
 					</div>

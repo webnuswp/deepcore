@@ -68,7 +68,7 @@ class Wn_Image_Class {
 		return $this;
 	}
 
-	public function hresize( $attach_id = null, $img_url = null, $width, $height, $crop = true ) {
+	public function hresize( $attach_id = null, $img_url = null, $width = null, $height = null, $crop = true ) {
 		// this is an attachment, so we have the ID
 		$image_src = array();
 		if ( $attach_id ) {
@@ -192,13 +192,27 @@ class Wn_Image_Class {
 			}
 			fclose($handle);
 		} else {
+			$curlObj = curl_init();
+			$options = [
+			CURLOPT_URL => $file,
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_POST => 1,
+			CURLOPT_FOLLOWLOCATION => 1,
+			CURLOPT_AUTOREFERER => 1,
+			CURLOPT_USERAGENT => 'Mozilla/5.0 (compatible; MSIE 5.01; Windows NT 5.0)',
+			CURLOPT_TIMEOUT => 2,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_0,
+			CURLOPT_HTTPHEADER => ['Expect:'],
+			CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
+			];
 
-			$args = array(
-				'timeout'     => 120,
-				'httpversion' => '1.1',
-				'user-agent'  => 'Mozilla/5.0 (compatible; MSIE 5.01; Windows NT 5.0)'
-			);
-			$file = wp_remote_get( $file, $args );
+			curl_setopt_array($curlObj, $options);
+			$file = curl_exec($curlObj);
+			if (curl_errno($curlObj)) {
+        		//error message
+				$returnData = curl_error($curlObj);
+			}
+			curl_close($curlObj);
 
 		}
 
@@ -332,7 +346,7 @@ class Wn_Image_Class {
 	}
 
   // Writes the image to a file.
-	public function toFile($file = '', $mimeType = null, $quality = 100 , $name , $width , $height ) {
+	public function toFile($file = null, $mimeType = null, $quality = 100 , $name = null, $width = null , $height = null) {
 
 		$image = $this->generate( $mimeType, $quality );
 
@@ -408,7 +422,7 @@ class Wn_Image_Class {
 	public function getHeight() {
 		return (int) imagesy($this->image);
 	}
-  
+
   // Gets the image's current height.
 	public function getitemHeight($input) {
 		return (int) imagesy($input);

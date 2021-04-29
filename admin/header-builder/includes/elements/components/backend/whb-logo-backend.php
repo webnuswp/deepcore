@@ -46,6 +46,12 @@
 						),
 					));
 
+					whb_textfield( array(
+						'title'			=> esc_html__( 'Custom URL', 'deep' ),
+						'id'			=> 'logo_custom_url',
+						'default'		=> '',
+					));
+
 					whb_image( array(
 						'title'			=> esc_html__( 'Default Logo + Transparent (light background) Logo', 'deep' ),
 						'id'			=> 'logo',
@@ -69,7 +75,7 @@
 			<!-- styling -->
 			<div class="whb-tab-panel whb-group-panel" data-id="#styling">
 
-				
+
 				<?php
 					whb_styling_tab( array(
 						'Logo' => array(
@@ -95,7 +101,7 @@
 							array( 'property' => 'color_hover' ),
 							array( 'property' => 'font_size' ),
 							array( 'property' => 'font_weight' ),
-							array( 'property' => 'font_style' ),							
+							array( 'property' => 'font_style' ),
 							array( 'property' => 'text_transform' ),
 							array( 'property' => 'text_decoration' ),
 							array( 'property' => 'line_height' ),

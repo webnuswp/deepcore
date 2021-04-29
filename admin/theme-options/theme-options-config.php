@@ -1909,7 +1909,7 @@
                 'required'  => array( 'deep_blog_social_share', '=', '1' ),
             ),
             array(
-                'title'     => esc_html__('Single post Authorbox', 'deep'),
+                'title'     => esc_html__('Single post author box', 'deep'),
                 'subtitle'  => esc_html__('This feature shows a picture of post author and their info.','deep'),
                 'id'        => 'deep_blog_single_authorbox_enable',
                 'type'      => 'switch',
@@ -1918,7 +1918,7 @@
                 'default'   => '0',
             ),
             array(
-                'title'     => esc_html__( 'Select Authorbox Layout', 'deep' ),
+                'title'     => esc_html__( 'Select author box Layout', 'deep' ),
                 'id'        => 'deep_authorbox_sec_type',
                 'type'      => 'image_select',
                 'options'   => array(

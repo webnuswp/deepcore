@@ -1,5 +1,11 @@
 <?php
 return $change_log = '
+v 1.0.23 – 29 April 2021
+- Added: Demo filter for importer
+- Added: Custom URL for logo widget
+- Added: Menu location support
+- Fixed: Some minor issues
+
 v 1.0.22 – 5 April 2021
 - Fixed: Social widget view
 - Fixed: Teaser box widget responsive issues

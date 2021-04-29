@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Deep_Admin {
 
 	public function __construct() {
-		
+
 		add_action( 'admin_menu', array( $this, 'admin_menus' ) );
 		add_action( 'admin_menu', array( $this, 'edit_admin_menus' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -19,9 +19,9 @@ class Deep_Admin {
 		add_action( 'wp_ajax_deep_deactivate_plugin', array( $this, 'deactivate_plugin' ) );
 		add_action( 'wp_ajax_deep_update_plugin', array( $this, 'update_plugin' ) );
 		add_action( 'admin_footer', array( $this, 'quick_access' ) );
-		
+
 	}
-	
+
 	public function dashboard_menu() {
 
 		global $submenu;
@@ -45,15 +45,15 @@ class Deep_Admin {
 	}
 
 	public function install_plugin() {
-		
+
 		if ( current_user_can( 'manage_options' ) ) {
-			
+
 			check_admin_referer( 'tgmpa-install', 'tgmpa-nonce' );
-			
+
 			global $tgmpa;
-			
+
 			$tgmpa->install_plugins_page();
-			
+
 			$url = wp_nonce_url(
 				add_query_arg(
 					array(
@@ -66,32 +66,31 @@ class Deep_Admin {
 				'tgmpa-nonce'
 			);
 
-			echo 'webnusi';
 			echo htmlspecialchars_decode( $url );
-			
+
 		}
-		
+
 		// this is required to terminate immediately and return a proper response
 		wp_die();
-		
+
 	}
 
 	public function activate_plugin() {
-		
+
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			
+
 			check_admin_referer( 'tgmpa-activate', 'tgmpa-nonce' );
-			
+
 			global $tgmpa;
-			
+
 			$plugins = $tgmpa->plugins;
-			
+
 			foreach ( $plugins as $plugin ) {
-				
+
 				if ( isset( $_GET['plugin'] ) && $plugin['slug'] === $_GET['plugin'] ) {
-					
+
 					activate_plugin( $plugin['file_path'] );
-					
+
 					$url = wp_nonce_url(
 						add_query_arg(
 							array(
@@ -103,36 +102,36 @@ class Deep_Admin {
 						'tgmpa-deactivate',
 						'tgmpa-nonce'
 					);
-					
+
 					echo htmlspecialchars_decode( $url );
-					
+
 				}
-				
+
 			} // foreach
-			
+
 		}
-		
+
 		// this is required to terminate immediately and return a proper response
 		wp_die();
-		
+
 	}
-	
+
 	public function deactivate_plugin() {
-		
+
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			
+
 			check_admin_referer( 'tgmpa-deactivate', 'tgmpa-nonce' );
-			
+
 			global $tgmpa;
-			
+
 			$plugins = $tgmpa->plugins;
-			
+
 			foreach ( $plugins as $plugin ) {
-				
+
 				if ( isset( $_GET['plugin'] ) && $plugin['slug'] === $_GET['plugin'] ) {
-					
+
 					deactivate_plugins( $plugin['file_path'] );
-					
+
 					$url = wp_nonce_url(
 						add_query_arg(
 							array(
@@ -144,18 +143,18 @@ class Deep_Admin {
 						'tgmpa-activate',
 						'tgmpa-nonce'
 					);
-					
+
 					echo htmlspecialchars_decode( $url );
-					
+
 				}
-				
+
 			} // foreach
-			
+
 		}
-		
+
 		// this is required to terminate immediately and return a proper response
 		wp_die();
-		
+
 	}
 
 	public function update_plugin() {
@@ -175,10 +174,10 @@ class Deep_Admin {
 				'tgmpa-deactivate',
 				'tgmpa-nonce'
 			);
-			
+
 			echo htmlspecialchars_decode( $url );
 		}
-		
+
 		// this is required to terminate immediately and return a proper response
 		wp_die();
 	}
@@ -204,7 +203,7 @@ class Deep_Admin {
 						time(),
 						true
 					);
-					
+
 				endif;
 
 				if ( $_GET['page'] == 'wn-admin-plugins' ) :
@@ -214,20 +213,18 @@ class Deep_Admin {
 
 				endif;
 
-				// endif;
-				
 			endif; // substr
-			
+
 		endif; // isset
 
 		wp_enqueue_style( 'webnus_js_composer', DEEP_ASSETS_URL . 'css/backend/admin-backend.css', false, false, false );
 		wp_deregister_style( 'font-awesome' );
-		wp_enqueue_style( 'font-awesome' );	
-		
+		wp_enqueue_style( 'font-awesome' );
+
 	}
-	
+
 	public function admin_menus() {
-		
+
 		$deep_options	= deep_options();
 		$menu_visiblity	= array(
 			'importer'		=> !empty( $deep_options['deep_theme_menus']['importer'] ) ? $deep_options['deep_theme_menus']['importer'] : '0',
@@ -247,7 +244,7 @@ class Deep_Admin {
 			$deep_theme_admin_logo,
 			'2',
 		));
-		
+
 		// Demo Importer page
 		call_user_func_array( 'add' . '_sub' . 'menu_' . 'page', array(
 			'wn-admin-welcome',
@@ -314,88 +311,88 @@ class Deep_Admin {
 	}
 
 	public function edit_admin_menus() {
-		
+
 		global $submenu;
-		
+
 		if ( current_user_can( 'manage_options' ) ) {
 			$submenu['wn-admin-welcome'][0][0] = esc_html__( 'Dashboard', 'deep' );
 		}
-		
+
 	}
-	
+
 	public function screen_welcome() {
-		
+
 		echo '<div class="wrap" style="height:0;overflow:hidden;"><h2></h2></div>';
 		include_once( '_partials/welcome.php' );
-		
+
 	}
-	
+
 	public function screen_plugins() {
-		
+
 		echo '<div class="wrap" style="height:0;overflow:hidden;"><h2></h2></div>';
 		include_once( '_partials/plugins.php' );
-		
+
 	}
-	
-	
+
+
 	public function screen_demo_importer() {
-		
+
 		echo '<div class="wrap" style="height:0;overflow:hidden;"><h2></h2></div>';
-		include_once( '_partials/demo-import.php' );
-		
+		include_once( '_partials/demo-listings.php' );
+
 	}
-	
+
 	public function screen_video_tutorial() {
-		
+
 		echo '<div class="wrap" style="height:0;overflow:hidden;"><h2></h2></div>';
 		include_once( '_partials/video-tutorial.php' );
-		
+
 	}
-	
+
 	public function screen_performance() {
-		
+
 		echo '<div class="wrap" style="height:0;overflow:hidden;"><h2></h2></div>';
 		include_once( '_partials/performance.php' );
-		
+
 	}
 
 	public function screen_header_builder() {
-		
-		
-		
+
+
+
 	}
-	
+
 	static function theme( $property = '' ) {
 
 		$deep_options = deep_options();
 
 		// Gets a WP_Theme object for a theme
 		$theme_data		= wp_get_theme();
-		$custom_name	= isset( $deep_options['deep_theme_lbl_name'] ) ? $deep_options['deep_theme_lbl_name'] : '';	
-		$custom_version	= isset( $deep_options['deep_theme_version'] ) ? $deep_options['deep_theme_version'] : '';	
-		
+		$custom_name	= isset( $deep_options['deep_theme_lbl_name'] ) ? $deep_options['deep_theme_lbl_name'] : '';
+		$custom_version	= isset( $deep_options['deep_theme_version'] ) ? $deep_options['deep_theme_version'] : '';
+
 		if( $theme_data->parent_theme ) {
 			$theme_data = wp_get_theme( basename( get_template_directory() ) );
 		}
-		
+
 		switch ( $property ) :
 
 			case 'name':
 			$data = ( isset( $custom_name ) && $custom_name != NULL ) ? $custom_name : $theme_data->Name;
 			break;
-			
+
 			case 'version':
 			$data = ( isset( $custom_version ) && $custom_version != NULL ) ? $custom_version : $theme_data->Version;
 			break;
-			
+
 			default:
 			$data = '';
 			break;
 
 		endswitch;
-		
+
 		return $data;
-		
+
 	}
 
 	public function quick_access() {
@@ -418,7 +415,7 @@ class Deep_Admin {
 			</li>
 			';
 			?>
-			
+
 			<div class="wn-admin-qacs-wrap">
 
 				<div class="hamburger hamburger--spring-r">
@@ -430,7 +427,7 @@ class Deep_Admin {
 					<?php
 
 					switch ($current_page) {
-						
+
 						case 'post': ?>
 							<?php echo $update_btns; ?>
 							<li class="wn-admin-qacs-item">
@@ -600,15 +597,15 @@ class Deep_Admin {
 							</li>
 						<?php
 						break;
-						
+
 						default: ?>
-							
+
 							<li class="wn-admin-qacs-item">
 								<a href="<?php echo self_admin_url( 'post-new.php' ); ?>" target="_blank" >
 									<?php esc_html_e( 'Add new post', 'deep' ); ?>
 								</a>
 							</li>
-							
+
 							<li class="wn-admin-qacs-item">
 								<a href="<?php echo self_admin_url( 'post-new.php?post_type=page' ); ?>" target="_blank" >
 									<?php esc_html_e( 'Add new page', 'deep' ); ?>
@@ -642,7 +639,7 @@ class Deep_Admin {
 								</a>
 							</li>
 							<?php endif; ?>
-							
+
 							<?php if ( is_plugin_active( 'modern-events-calendar-lite/modern-events-calendar-lite.php' ) || is_plugin_active( 'modern-events-calendar/mec.php' ) ) : ?>
 							<li class="wn-admin-qacs-item">
 								<a href="<?php echo self_admin_url( 'post-new.php?post_type=mec-events' ); ?>" target="_blank" >
@@ -688,7 +685,7 @@ class Deep_Admin {
 	<?php
 		}
 	}
-	
+
 }
 
 new Deep_Admin();

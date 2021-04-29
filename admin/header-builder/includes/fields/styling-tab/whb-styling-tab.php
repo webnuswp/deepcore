@@ -349,7 +349,7 @@ function whb_styling_tab( $params = array() ) {
 
 						// box
 						case 'margin':
-							${$vars['panel']} .= '<div class="whb-field whb-box-wrap w-col-sm-12"><h5>' . esc_html__( 'Margin', 'deep' ) . '</h5>';
+							${$vars['panel']} .= '<div class="wp-clearfix"></div><div class="whb-field whb-box-wrap w-col-sm-6"><h5>' . esc_html__( 'Margin', 'deep' ) . '</h5>';
 							${$vars['panel']} .= whb_textfield( array(
 								'id'			=> $el_atts['property'] . '_top_sc_' . $screen . '_el_' . $el_href,
 								'get'			=> true,
@@ -366,7 +366,7 @@ function whb_styling_tab( $params = array() ) {
 								'id'			=> $el_atts['property'] . '_left_sc_' . $screen . '_el_' . $el_href,
 								'get'			=> true,
 							));
-							${$vars['panel']} .= '</div><div class="wp-clearfix"></div>';
+							${$vars['panel']} .= '</div>';
 						break;
 
 						case 'padding':
@@ -391,7 +391,7 @@ function whb_styling_tab( $params = array() ) {
 						break;
 
 						case 'border_radius':
-							${$vars['panel']} .= '<div class="whb-field whb-box-wrap whb-box-border-radius-wrap w-col-sm-12"><h5>' . esc_html__( 'Border Radius', 'deep' ) . '</h5>';
+							${$vars['panel']} .= '<div class="whb-field whb-box-wrap whb-box-border-radius-wrap w-col-sm-6"><h5>' . esc_html__( 'Border Radius', 'deep' ) . '</h5>';
 							${$vars['panel']} .= whb_textfield( array(
 								'id'			=> 'top_left_radius_sc_' . $screen . '_el_' . $el_href,
 								'get'			=> true,
@@ -408,10 +408,11 @@ function whb_styling_tab( $params = array() ) {
 								'id'			=> 'bottom_left_radius_sc_' . $screen . '_el_' . $el_href,
 								'get'			=> true,
 							));
-							${$vars['panel']} .= '</div><div class="wp-clearfix"></div>';
+							${$vars['panel']} .= '</div>';
 						break;
 
 						case 'border':
+							${$vars['panel']} .= '<div class="whb-field w-col-sm-6">';
 							${$vars['panel']} .= whb_select( array(
 								'title'			=> esc_html__( 'Border Style', 'deep' ),
 								'id'			=> $el_atts['property'] . '_style_sc_' . $screen . '_el_' . $el_href,
@@ -431,12 +432,15 @@ function whb_styling_tab( $params = array() ) {
 								),
 								'get'			=> true,
 							));
+							${$vars['panel']} .= '</div>';
+							${$vars['panel']} .= '<div class="whb-field w-col-sm-6">';
 							${$vars['panel']} .= whb_colorpicker( array(
 								'title'			=> esc_html__( 'Border Color', 'deep' ),
 								'id'			=> $el_atts['property'] . '_color_sc_' . $screen . '_el_' . $el_href,
 								'get'			=> true,
 							));
-							${$vars['panel']} .= '<div class="whb-field whb-box-wrap w-col-sm-12"><h5>' . esc_html__( 'Border Width', 'deep' ) . '</h5>';
+							${$vars['panel']} .= '</div><div class="wp-clearfix"></div>';
+							${$vars['panel']} .= '<div class="whb-field whb-box-wrap w-col-sm-6"><h5>' . esc_html__( 'Border Width', 'deep' ) . '</h5>';
 							${$vars['panel']} .= whb_textfield( array(
 								'id'			=> $el_atts['property'] . '_top_sc_' . $screen . '_el_' . $el_href,
 								'get'			=> true,
@@ -453,7 +457,7 @@ function whb_styling_tab( $params = array() ) {
 								'id'			=> $el_atts['property'] . '_left_sc_' . $screen . '_el_' . $el_href,
 								'get'			=> true,
 							));
-							${$vars['panel']} .= '</div><div class="wp-clearfix"></div>';
+							${$vars['panel']} .= '</div>';
 						break;
 
 						case 'float':
